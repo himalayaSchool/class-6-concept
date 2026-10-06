@@ -3,444 +3,272 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-  <title>Himalaya Public School - Class 6 Concept</title>
+<title>Himalaya Public School - Class 6 Concept</title>
 
+<style>
 
-  <style>
+* {
+  box-sizing: border-box;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6fb;
+  color: #172f68;
+  min-height: 100vh;
+}
 
+/* HEADER */
 
-    body {
+.header {
+  background: white;
+  height: 82px;
+  border-bottom: 1px solid #e5e8ef;
 
-      margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+  padding: 0 7%;
+}
 
-      background: #f4f6fb;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
 
-      color: #172b5c;
+.logo {
+  width: 50px;
+  height: 50px;
 
-      min-height: 100vh;
+  background: #172f68;
+  color: white;
 
-    }
+  border-radius: 14px;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    /* =====================================================
-       HEADER
-       ===================================================== */
+  font-size: 25px;
+  font-weight: bold;
+}
 
-    .header {
+.brand-text h1 {
+  margin: 0;
+  font-size: 22px;
+}
 
-      background: white;
+.brand-text p {
+  margin: 4px 0 0;
+  color: #7a8497;
+  font-size: 13px;
+}
 
-      height: 82px;
+.exam-label {
+  background: #eef3ff;
+  color: #172f68;
 
-      border-bottom:
-        1px solid #e5e8ef;
+  padding: 10px 18px;
 
-      display: flex;
+  border-radius: 20px;
 
-      align-items: center;
+  font-size: 13px;
+  font-weight: bold;
+}
 
-      justify-content: space-between;
+/* MAIN */
 
-      padding:
-        0 7%;
+.main {
+  min-height: calc(100vh - 82px);
 
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  padding: 40px 20px;
+}
 
-    .brand {
+.login-card {
+  width: 100%;
+  max-width: 440px;
 
-      display: flex;
+  background: white;
 
-      align-items: center;
+  border-radius: 20px;
 
-      gap: 14px;
+  padding: 38px;
 
-    }
+  box-shadow:
+    0 12px 35px rgba(23,43,92,0.10);
+}
 
+.login-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
 
-    .logo {
+.login-title h2 {
+  margin: 0 0 8px;
 
-      width: 50px;
+  font-size: 28px;
 
-      height: 50px;
+  color: #172f68;
+}
 
-      background: #172f68;
+.login-title p {
+  margin: 0;
 
-      color: white;
+  color: #7a8497;
 
-      border-radius: 14px;
+  font-size: 14px;
+}
 
-      display: flex;
+/* INPUTS */
 
-      align-items: center;
+.field {
+  margin-bottom: 20px;
+}
 
-      justify-content: center;
+.field label {
+  display: block;
 
-      font-size: 25px;
+  margin-bottom: 8px;
 
-      font-weight: bold;
+  font-size: 14px;
 
-    }
+  font-weight: bold;
 
+  color: #374151;
+}
 
-    .brand-text h1 {
+.field input {
+  width: 100%;
 
-      margin: 0;
+  height: 50px;
 
-      font-size: 22px;
+  border: 1px solid #d9dee8;
 
-      letter-spacing: 1px;
+  border-radius: 10px;
 
-    }
+  padding: 0 15px;
 
+  font-size: 16px;
 
-    .brand-text p {
+  outline: none;
+}
 
-      margin: 4px 0 0;
+.field input:focus {
+  border-color: #3156a3;
 
-      color: #7a8497;
+  box-shadow:
+    0 0 0 3px rgba(49,86,163,0.10);
+}
 
-      font-size: 13px;
+/* BUTTON */
 
-    }
+.login-button {
+  width: 100%;
 
+  height: 52px;
 
-    .exam-label {
+  border: none;
 
-      background: #eef3ff;
+  border-radius: 10px;
 
-      color: #172f68;
+  background: #172f68;
 
-      padding:
-        10px 18px;
+  color: white;
 
-      border-radius: 20px;
+  font-size: 16px;
 
-      font-size: 13px;
+  font-weight: bold;
 
-      font-weight: bold;
+  cursor: pointer;
+}
 
-    }
+.login-button:disabled {
+  background: #9aa4b7;
 
+  cursor: not-allowed;
+}
 
-    /* =====================================================
-       MAIN
-       ===================================================== */
+/* MESSAGE */
 
-    .main {
+#message {
+  min-height: 22px;
 
-      min-height:
-        calc(100vh - 82px);
+  margin-top: 18px;
 
-      display: flex;
+  text-align: center;
 
-      align-items: center;
+  font-size: 14px;
+}
 
-      justify-content: center;
+.error {
+  color: #d93025;
+}
 
-      padding: 40px 20px;
+.success {
+  color: #188038;
+}
 
-    }
+.checking {
+  color: #3156a3;
+}
 
+/* FOOTER */
 
-    .login-card {
+.footer {
+  text-align: center;
 
-      width: 100%;
+  margin-top: 25px;
 
-      max-width: 440px;
+  color: #9aa1af;
 
-      background: white;
+  font-size: 12px;
+}
 
-      border-radius: 20px;
+/* MOBILE */
 
-      padding: 38px;
+@media (max-width: 600px) {
 
-      box-shadow:
-        0 12px 35px rgba(23,43,92,0.10);
+  .header {
+    height: auto;
+    padding: 15px 20px;
+  }
 
-    }
+  .exam-label {
+    display: none;
+  }
 
+  .brand-text h1 {
+    font-size: 18px;
+  }
 
-    .login-title {
+  .brand-text p {
+    font-size: 11px;
+  }
 
-      text-align: center;
+  .logo {
+    width: 44px;
+    height: 44px;
+  }
 
-      margin-bottom: 30px;
+  .login-card {
+    padding: 28px 22px;
+  }
 
-    }
+}
 
-
-    .login-title h2 {
-
-      margin: 0 0 8px;
-
-      font-size: 28px;
-
-      color: #172f68;
-
-    }
-
-
-    .login-title p {
-
-      margin: 0;
-
-      color: #7a8497;
-
-      font-size: 14px;
-
-    }
-
-
-    /* =====================================================
-       FORM
-       ===================================================== */
-
-    .field {
-
-      margin-bottom: 20px;
-
-    }
-
-
-    .field label {
-
-      display: block;
-
-      margin-bottom: 8px;
-
-      font-size: 14px;
-
-      font-weight: bold;
-
-      color: #374151;
-
-    }
-
-
-    .field input {
-
-      width: 100%;
-
-      height: 50px;
-
-      border: 1px solid #d9dee8;
-
-      border-radius: 10px;
-
-      padding:
-        0 15px;
-
-      font-size: 16px;
-
-      outline: none;
-
-      transition:
-        border 0.2s,
-        box-shadow 0.2s;
-
-    }
-
-
-    .field input:focus {
-
-      border-color: #3156a3;
-
-      box-shadow:
-        0 0 0 3px rgba(49,86,163,0.10);
-
-    }
-
-
-    /* =====================================================
-       LOGIN BUTTON
-       ===================================================== */
-
-    .login-button {
-
-      width: 100%;
-
-      height: 52px;
-
-      border: none;
-
-      border-radius: 10px;
-
-      background: #172f68;
-
-      color: white;
-
-      font-size: 16px;
-
-      font-weight: bold;
-
-      cursor: pointer;
-
-      transition:
-        background 0.2s,
-        transform 0.1s;
-
-    }
-
-
-    .login-button:hover {
-
-      background: #23427f;
-
-    }
-
-
-    .login-button:active {
-
-      transform: scale(0.99);
-
-    }
-
-
-    .login-button:disabled {
-
-      background: #9aa4b7;
-
-      cursor: not-allowed;
-
-    }
-
-
-    /* =====================================================
-       MESSAGE
-       ===================================================== */
-
-    #message {
-
-      min-height: 22px;
-
-      margin-top: 18px;
-
-      text-align: center;
-
-      font-size: 14px;
-
-      line-height: 1.5;
-
-    }
-
-
-    .error {
-
-      color: #d93025;
-
-    }
-
-
-    .success {
-
-      color: #188038;
-
-    }
-
-
-    .checking {
-
-      color: #3156a3;
-
-    }
-
-
-    /* =====================================================
-       FOOTER
-       ===================================================== */
-
-    .footer {
-
-      text-align: center;
-
-      margin-top: 25px;
-
-      color: #9aa1af;
-
-      font-size: 12px;
-
-    }
-
-
-    /* =====================================================
-       MOBILE
-       ===================================================== */
-
-    @media (max-width: 600px) {
-
-      .header {
-
-        height: auto;
-
-        padding:
-          15px 20px;
-
-      }
-
-
-      .exam-label {
-
-        display: none;
-
-      }
-
-
-      .brand-text h1 {
-
-        font-size: 18px;
-
-      }
-
-
-      .brand-text p {
-
-        font-size: 11px;
-
-      }
-
-
-      .logo {
-
-        width: 44px;
-
-        height: 44px;
-
-      }
-
-
-      .login-card {
-
-        padding: 28px 22px;
-
-      }
-
-
-      .login-title h2 {
-
-        font-size: 24px;
-
-      }
-
-    }
-
-  </style>
+</style>
 
 </head>
 
@@ -448,514 +276,354 @@
 <body>
 
 
-  <!-- =====================================================
-       HEADER
-       ===================================================== -->
+<header class="header">
 
-  <header class="header">
+  <div class="brand">
 
-    <div class="brand">
+    <div class="logo">
+      H
+    </div>
 
-      <div class="logo">
-        H
-      </div>
+    <div class="brand-text">
+
+      <h1>
+        HIMALAYA
+      </h1>
+
+      <p>
+        Class 6 Concept Examination
+      </p>
+
+    </div>
+
+  </div>
 
 
-      <div class="brand-text">
+  <div class="exam-label">
+    CLASS 6 CONCEPT
+  </div>
 
-        <h1>
-          HIMALAYA
-        </h1>
+</header>
 
-        <p>
-          Class 6 Concept Examination
-        </p>
 
-      </div>
+
+<main class="main">
+
+
+  <div class="login-card">
+
+
+    <div class="login-title">
+
+      <h2>
+        Student Login
+      </h2>
+
+      <p>
+        Enter your admission number and passcode
+      </p>
 
     </div>
 
 
-    <div class="exam-label">
 
-      CLASS 6 CONCEPT
-
-    </div>
-
-  </header>
+    <form
+      id="loginForm"
+      autocomplete="off"
+    >
 
 
+      <div class="field">
 
-  <!-- =====================================================
-       MAIN
-       ===================================================== -->
+        <label for="admissionNumber">
+          Admission Number
+        </label>
 
-  <main class="main">
-
-
-    <div class="login-card">
-
-
-      <div class="login-title">
-
-        <h2>
-          Student Login
-        </h2>
-
-        <p>
-          Enter your admission number and passcode
-        </p>
-
-      </div>
-
-
-
-      <!-- =================================================
-           LOGIN FORM
-           ================================================= -->
-
-      <form
-        id="loginForm"
-        autocomplete="off"
-      >
-
-
-        <!-- ADMISSION NUMBER -->
-
-        <div class="field">
-
-          <label for="admissionNumber">
-
-            Admission Number
-
-          </label>
-
-
-          <input
-            type="text"
-            id="admissionNumber"
-            name="admissionNumber"
-            placeholder="Enter admission number"
-            autocomplete="off"
-            required
-          >
-
-        </div>
-
-
-
-        <!-- PASSCODE -->
-
-        <div class="field">
-
-          <label for="password">
-
-            Passcode
-
-          </label>
-
-
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter passcode"
-            autocomplete="off"
-            required
-          >
-
-        </div>
-
-
-
-        <!-- LOGIN BUTTON -->
-
-        <button
-          type="submit"
-          id="loginButton"
-          class="login-button"
+        <input
+          type="text"
+          id="admissionNumber"
+          placeholder="Enter admission number"
+          autocomplete="off"
+          required
         >
 
-          Login
-
-        </button>
-
-
-        <!-- MESSAGE -->
-
-        <div id="message"></div>
-
-
-      </form>
+      </div>
 
 
 
-      <div class="footer">
+      <div class="field">
 
-        Himalaya Public School
+        <label for="password">
+          Passcode
+        </label>
+
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter passcode"
+          autocomplete="off"
+          required
+        >
 
       </div>
 
 
+
+      <button
+        type="submit"
+        id="loginButton"
+        class="login-button"
+      >
+        Login
+      </button>
+
+
+      <div id="message"></div>
+
+
+    </form>
+
+
+    <div class="footer">
+      Himalaya Public School
     </div>
 
 
-  </main>
+  </div>
+
+
+</main>
 
 
 
-  <!-- =====================================================
-       JAVASCRIPT
-       ===================================================== -->
+<script>
 
-  <script>
+/* ========================================================
+   APPS SCRIPT
+   ======================================================== */
 
-
-    /* =====================================================
-       APPS SCRIPT URL
-       ===================================================== */
-
-    const APPS_SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbyVBK9BHdBozVZXe5bHBkcuUEqkLafFj0KETPdjVQeP0hRCUSxGACj1rpimzlqGEBSZ/exec";
+const APPS_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbyVBK9BHdBozVZXe5bHBkcuUEqkLafFj0KETPdjVQeP0hRCUSxGACj1rpimzlqGEBSZ/exec";
 
 
+/* ========================================================
+   ELEMENTS
+   ======================================================== */
 
-    /* =====================================================
-       ELEMENTS
-       ===================================================== */
+const form =
+document.getElementById("loginForm");
 
-    const loginForm =
+const admissionInput =
+document.getElementById("admissionNumber");
+
+const passwordInput =
+document.getElementById("password");
+
+const button =
+document.getElementById("loginButton");
+
+const message =
+document.getElementById("message");
+
+
+/* ========================================================
+   LOGIN CALLBACK
+   ======================================================== */
+
+window.loginCallback = function(data) {
+
+  console.log("LOGIN RESPONSE:", data);
+
+
+  if (
+    data &&
+    data.success === true
+  ) {
+
+    message.className = "success";
+
+    message.textContent =
+      "Login successful. Opening examination...";
+
+    button.disabled = true;
+
+
+    /*
+     * DIRECT GITHUB REDIRECT
+     */
+
+    window.location.assign(
+      data.redirectURL
+    );
+
+    return;
+
+  }
+
+
+  message.className = "error";
+
+  message.textContent =
+    data && data.error
+      ? data.error
+      : "Invalid Admission Number or Passcode.";
+
+  button.disabled = false;
+
+  button.textContent = "Login";
+
+};
+
+
+/* ========================================================
+   FORM SUBMIT
+   ======================================================== */
+
+form.addEventListener(
+  "submit",
+  function(event) {
+
+    event.preventDefault();
+
+
+    const admissionNumber =
+      admissionInput.value
+        .trim()
+        .toUpperCase();
+
+
+    const password =
+      passwordInput.value
+        .trim()
+        .toUpperCase();
+
+
+    /* VALIDATION */
+
+    if (!admissionNumber) {
+
+      message.className = "error";
+
+      message.textContent =
+        "Please enter your admission number.";
+
+      admissionInput.focus();
+
+      return;
+
+    }
+
+
+    if (!password) {
+
+      message.className = "error";
+
+      message.textContent =
+        "Please enter your passcode.";
+
+      passwordInput.focus();
+
+      return;
+
+    }
+
+
+    /* BUTTON */
+
+    button.disabled = true;
+
+    button.textContent =
+      "Checking...";
+
+
+    message.className =
+      "checking";
+
+    message.textContent =
+      "Verifying your details...";
+
+
+    /*
+     * REMOVE ANY OLD JSONP SCRIPT
+     */
+
+    const oldScript =
       document.getElementById(
-        "loginForm"
+        "loginJSONP"
       );
 
+    if (oldScript) {
 
-    const admissionNumberInput =
-      document.getElementById(
-        "admissionNumber"
-      );
+      oldScript.remove();
 
+    }
 
-    const passwordInput =
-      document.getElementById(
-        "password"
-      );
 
+    /*
+     * CREATE JSONP URL
+     */
 
-    const loginButton =
-      document.getElementById(
-        "loginButton"
-      );
+    const url =
+      APPS_SCRIPT_URL +
 
+      "?action=login" +
 
-    const message =
-      document.getElementById(
-        "message"
-      );
+      "&admissionNumber=" +
+      encodeURIComponent(
+        admissionNumber
+      ) +
 
+      "&password=" +
+      encodeURIComponent(
+        password
+      ) +
 
+      "&callback=loginCallback";
 
-    /* =====================================================
-       LOGIN CALLBACK
-       ===================================================== */
 
-    window.loginCallback =
-      function(response) {
-
-
-        console.log(
-          "Apps Script response:",
-          response
-        );
-
-
-        /* -----------------------------------------------
-           SUCCESS
-           ----------------------------------------------- */
-
-        if (
-          response &&
-          response.success
-        ) {
-
-
-          message.className =
-            "success";
-
-
-          message.textContent =
-            "Login successful. Opening examination...";
-
-
-          loginButton.disabled =
-            true;
-
-
-          /*
-           * IMPORTANT
-           *
-           * Redirect directly to GitHub.
-           *
-           * The browser will NOT remain
-           * on script.google.com.
-           */
-
-          if (
-            response.redirectURL
-          ) {
-
-            window.location.href =
-              response.redirectURL;
-
-            return;
-
-          }
-
-
-          /*
-           * Safety fallback
-           */
-
-          message.className =
-            "error";
-
-          message.textContent =
-            "Login successful, but examination URL was not received.";
-
-          loginButton.disabled =
-            false;
-
-          return;
-
-        }
-
-
-
-        /* -----------------------------------------------
-           LOGIN FAILED
-           ----------------------------------------------- */
-
-        message.className =
-          "error";
-
-
-        message.textContent =
-          response &&
-          response.error
-
-            ? response.error
-
-            : "Invalid Admission Number or Passcode.";
-
-
-        loginButton.disabled =
-          false;
-
-      };
-
-
-
-    /* =====================================================
-       LOGIN FORM
-       ===================================================== */
-
-    loginForm.addEventListener(
-      "submit",
-      function(event) {
-
-
-        event.preventDefault();
-
-
-
-        /* -----------------------------------------------
-           GET VALUES
-           ----------------------------------------------- */
-
-        const admissionNumber =
-          admissionNumberInput.value
-            .trim()
-            .toUpperCase();
-
-
-        const password =
-          passwordInput.value
-            .trim()
-            .toUpperCase();
-
-
-
-        /* -----------------------------------------------
-           VALIDATION
-           ----------------------------------------------- */
-
-        if (!admissionNumber) {
-
-          message.className =
-            "error";
-
-          message.textContent =
-            "Please enter your admission number.";
-
-          admissionNumberInput.focus();
-
-          return;
-
-        }
-
-
-        if (!password) {
-
-          message.className =
-            "error";
-
-          message.textContent =
-            "Please enter your passcode.";
-
-          passwordInput.focus();
-
-          return;
-
-        }
-
-
-
-        /* -----------------------------------------------
-           BUTTON STATE
-           ----------------------------------------------- */
-
-        loginButton.disabled =
-          true;
-
-
-        loginButton.textContent =
-          "Checking...";
-
-
-        message.className =
-          "checking";
-
-
-        message.textContent =
-          "Verifying your details...";
-
-
-
-        /* -----------------------------------------------
-           CREATE UNIQUE CALLBACK
-           ----------------------------------------------- */
-
-        const callbackName =
-          "loginCallback";
-
-
-
-        /* -----------------------------------------------
-           BUILD URL
-           ----------------------------------------------- */
-
-        const loginURL =
-          APPS_SCRIPT_URL +
-          "?action=login" +
-          "&admissionNumber=" +
-          encodeURIComponent(
-            admissionNumber
-          ) +
-          "&password=" +
-          encodeURIComponent(
-            password
-          ) +
-          "&callback=" +
-          encodeURIComponent(
-            callbackName
-          );
-
-
-
-        console.log(
-          "Login URL:",
-          loginURL
-        );
-
-
-
-        /* -----------------------------------------------
-           CREATE JSONP SCRIPT
-           ----------------------------------------------- */
-
-        const script =
-          document.createElement(
-            "script"
-          );
-
-
-        script.src =
-          loginURL;
-
-
-        script.async =
-          true;
-
-
-
-        /* -----------------------------------------------
-           ERROR HANDLING
-           ----------------------------------------------- */
-
-        script.onerror =
-          function() {
-
-
-            message.className =
-              "error";
-
-
-            message.textContent =
-              "Unable to connect to examination server.";
-
-
-            loginButton.disabled =
-              false;
-
-
-            loginButton.textContent =
-              "Login";
-
-
-            /*
-             * Remove failed script
-             */
-
-            if (
-              script.parentNode
-            ) {
-
-              script.parentNode.removeChild(
-                script
-              );
-
-            }
-
-          };
-
-
-
-        /* -----------------------------------------------
-           LOAD REQUEST
-           ----------------------------------------------- */
-
-        document
-          .body
-          .appendChild(
-            script
-          );
-
-
-      }
+    console.log(
+      "REQUEST:",
+      url
     );
 
 
-  </script>
+    /*
+     * CREATE SCRIPT
+     */
+
+    const script =
+      document.createElement(
+        "script"
+      );
+
+
+    script.id =
+      "loginJSONP";
+
+
+    script.src =
+      url;
+
+
+    /*
+     * IMPORTANT:
+     *
+     * We deliberately DO NOT use
+     * script.onerror here.
+     *
+     * The Apps Script response has
+     * already been verified to work.
+     */
+
+    document.head.appendChild(
+      script
+    );
+
+
+  }
+);
+
+</script>
 
 
 </body>
