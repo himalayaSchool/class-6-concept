@@ -2,14 +2,17 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color" content="#172b5c">
+<meta name="theme-color"
+      content="#172b5c">
 
 <title>Himalaya School - Class 6 Concept</title>
+
 
 <style>
 
@@ -18,11 +21,15 @@
 }
 
 body {
+
     margin: 0;
+
     min-height: 100vh;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     padding: 20px;
@@ -45,16 +52,19 @@ body {
     color: #172033;
 }
 
+
 .card {
 
     width: 100%;
+
     max-width: 420px;
 
     padding: 32px;
 
     border-radius: 28px;
 
-    background: rgba(255,255,255,0.97);
+    background:
+        rgba(255,255,255,0.97);
 
     box-shadow:
         0 20px 60px
@@ -65,6 +75,7 @@ body {
         rgba(20,40,80,0.08);
 }
 
+
 .header {
 
     text-align: center;
@@ -72,16 +83,20 @@ body {
     margin-bottom: 28px;
 }
 
+
 .logo {
 
     width: 64px;
+
     height: 64px;
 
     margin:
         0 auto 15px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     border-radius: 18px;
@@ -95,6 +110,7 @@ body {
     font-weight: 800;
 }
 
+
 h1 {
 
     margin: 0;
@@ -104,19 +120,19 @@ h1 {
     letter-spacing: -0.5px;
 }
 
+
 .subtitle {
 
     margin:
-        7px 0 0;
+        7px 0 12px;
 
     color: #697386;
 
     font-size: 14px;
 }
 
-.exam {
 
-    margin-top: 12px;
+.exam {
 
     display: inline-block;
 
@@ -134,6 +150,7 @@ h1 {
     font-weight: 700;
 }
 
+
 label {
 
     display: block;
@@ -145,6 +162,7 @@ label {
 
     font-weight: 700;
 }
+
 
 input {
 
@@ -158,16 +176,13 @@ input {
 
     border-radius: 14px;
 
-    background: #fff;
+    background: white;
 
     font-size: 16px;
 
     outline: none;
-
-    transition:
-        border-color .2s,
-        box-shadow .2s;
 }
+
 
 input:focus {
 
@@ -177,6 +192,7 @@ input:focus {
         0 0 0 4px
         rgba(71,120,255,.10);
 }
+
 
 button {
 
@@ -199,16 +215,8 @@ button {
     font-weight: 700;
 
     cursor: pointer;
-
-    transition:
-        transform .1s,
-        opacity .2s;
 }
 
-button:active {
-
-    transform: scale(.99);
-}
 
 button:disabled {
 
@@ -216,6 +224,7 @@ button:disabled {
 
     cursor: not-allowed;
 }
+
 
 .message {
 
@@ -233,6 +242,7 @@ button:disabled {
     line-height: 1.4;
 }
 
+
 .message.error {
 
     display: block;
@@ -242,6 +252,7 @@ button:disabled {
     color: #b42318;
 }
 
+
 .message.info {
 
     display: block;
@@ -250,6 +261,7 @@ button:disabled {
 
     color: #24458c;
 }
+
 
 .footer {
 
@@ -263,12 +275,15 @@ button:disabled {
 }
 
 </style>
+
 </head>
 
 
 <body>
 
+
 <div class="card">
+
 
     <div class="header">
 
@@ -291,7 +306,11 @@ button:disabled {
     </div>
 
 
-    <form id="loginForm">
+    <form
+        id="loginForm"
+        method="GET"
+        target="_self"
+    >
 
         <label for="admissionNumber">
             Admission Number
@@ -299,6 +318,7 @@ button:disabled {
 
         <input
             id="admissionNumber"
+            name="loginId"
             type="text"
             autocomplete="username"
             placeholder="Enter Admission Number"
@@ -314,6 +334,7 @@ button:disabled {
 
         <input
             id="passcode"
+            name="password"
             type="password"
             autocomplete="current-password"
             placeholder="Enter Passcode"
@@ -341,21 +362,15 @@ button:disabled {
         Secure Student Examination Login
     </div>
 
+
 </div>
 
 
 <script>
 
-/* ==================================================
-   CLASS 6 CONCEPT LOGIN
-   ================================================== */
-
-/*
-   Only the Apps Script URL is required here.
-
-   The Student Data Sheet ID is NOT exposed
-   to the browser.
-*/
+/* ================================================
+   CLASS 6 CONCEPT APPS SCRIPT
+   ================================================ */
 
 const APPS_SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbyVBK9BHdBozVZXe5bHBkcuUEqkLafFj0KETPdjVQeP0hRCUSxGACj1rpimzlqGEBSZ/exec";
@@ -377,26 +392,13 @@ const passcodeInput =
 document.getElementById("passcode");
 
 
-/* ==================================================
-   MESSAGE
-   ================================================== */
-
-function showMessage(text, type) {
-
-    message.textContent = text;
-
-    message.className =
-        "message " + type;
-}
-
-
-/* ==================================================
-   LOGIN
-   ================================================== */
+/* ================================================
+   SUBMIT
+   ================================================ */
 
 form.addEventListener(
     "submit",
-    async function(event) {
+    function(event) {
 
         event.preventDefault();
 
@@ -413,11 +415,12 @@ form.addEventListener(
                 .toUpperCase();
 
 
-        /* --------------------------------------------
-           EMPTY CHECK
-           -------------------------------------------- */
+        /* Empty check */
 
-        if (!admissionNumber || !passcode) {
+        if (
+            !admissionNumber ||
+            !passcode
+        ) {
 
             showMessage(
                 "Please enter your Admission Number and Passcode.",
@@ -428,11 +431,11 @@ form.addEventListener(
         }
 
 
-        /* --------------------------------------------
-           ADMISSION NUMBER = PASSCODE
-           -------------------------------------------- */
+        /* Admission number = password */
 
-        if (admissionNumber !== passcode) {
+        if (
+            admissionNumber !== passcode
+        ) {
 
             showMessage(
                 "Invalid Admission Number or Passcode.",
@@ -443,9 +446,7 @@ form.addEventListener(
         }
 
 
-        /* --------------------------------------------
-           START LOGIN
-           -------------------------------------------- */
+        /* Show loading */
 
         button.disabled = true;
 
@@ -459,177 +460,51 @@ form.addEventListener(
         );
 
 
-        try {
+        /*
+         * IMPORTANT:
+         *
+         * We are NOT using fetch().
+         *
+         * The browser navigates directly
+         * to Google Apps Script.
+         */
 
-            /*
-             * GET request.
-             *
-             * This is simpler for Apps Script
-             * and avoids unnecessary browser
-             * CORS/preflight complications.
-             */
-
-            const url =
-                APPS_SCRIPT_URL +
-                "?action=login" +
-                "&loginId=" +
-                encodeURIComponent(admissionNumber) +
-                "&password=" +
-                encodeURIComponent(passcode);
-
-
-            const response =
-                await fetch(url);
+        const loginURL =
+            APPS_SCRIPT_URL +
+            "?action=login" +
+            "&loginId=" +
+            encodeURIComponent(admissionNumber) +
+            "&password=" +
+            encodeURIComponent(passcode);
 
 
-            const text =
-                await response.text();
-
-
-            /*
-             * Apps Script may return JSON.
-             */
-
-            let result;
-
-            try {
-
-                result =
-                    JSON.parse(text);
-
-            } catch {
-
-                /*
-                 * If Apps Script returns an HTML
-                 * redirect page, allow the browser
-                 * to use it directly.
-                 */
-
-                document.open();
-
-                document.write(text);
-
-                document.close();
-
-                return;
-            }
-
-
-            /* ----------------------------------------
-               LOGIN FAILED
-               ---------------------------------------- */
-
-            if (!result.success) {
-
-                showMessage(
-                    result.message ||
-                    "Invalid Admission Number.",
-                    "error"
-                );
-
-                return;
-            }
-
-
-            /* ----------------------------------------
-               ALREADY SUBMITTED
-               ---------------------------------------- */
-
-            if (result.submitted === true) {
-
-                sessionStorage.setItem(
-                    "studentName",
-                    result.studentName || ""
-                );
-
-                sessionStorage.setItem(
-                    "studentClass",
-                    result.studentClass || ""
-                );
-
-                window.location.href =
-                    "already-submitted.html";
-
-                return;
-            }
-
-
-            /* ----------------------------------------
-               SUCCESSFUL LOGIN
-               ---------------------------------------- */
-
-            /*
-             * The Apps Script is responsible for
-             * returning the correct Class 6 Concept
-             * test URL.
-             */
-
-            if (result.testURL) {
-
-                sessionStorage.setItem(
-                    "studentName",
-                    result.studentName || ""
-                );
-
-                sessionStorage.setItem(
-                    "studentClass",
-                    result.studentClass || ""
-                );
-
-                sessionStorage.setItem(
-                    "admissionNumber",
-                    admissionNumber
-                );
-
-
-                window.location.href =
-                    result.testURL;
-
-                return;
-            }
-
-
-            /*
-             * Fallback if Apps Script doesn't
-             * return a test URL.
-             */
-
-            showMessage(
-                "The examination page is not configured yet.",
-                "error"
-            );
-
-        }
-
-
-        catch (error) {
-
-            console.error(error);
-
-            showMessage(
-                "Unable to connect to the examination server. Please try again.",
-                "error"
-            );
-
-        }
-
-
-        finally {
-
-            button.disabled = false;
-
-            button.textContent =
-                "Login";
-
-        }
+        window.location.href =
+            loginURL;
 
     }
 );
 
 
-/* ==================================================
-   AUTO UPPERCASE ADMISSION NUMBER
-   ================================================== */
+/* ================================================
+   MESSAGE
+   ================================================ */
+
+function showMessage(
+    text,
+    type
+) {
+
+    message.textContent =
+        text;
+
+    message.className =
+        "message " + type;
+}
+
+
+/* ================================================
+   UPPERCASE ADMISSION NUMBER
+   ================================================ */
 
 admissionInput.addEventListener(
     "input",
@@ -643,5 +518,7 @@ admissionInput.addEventListener(
 
 </script>
 
+
 </body>
+
 </html>
