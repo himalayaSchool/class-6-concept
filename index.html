@@ -11,7 +11,9 @@
 <meta name="theme-color"
       content="#172b5c">
 
-<title>Himalaya School - Class 6 Concept</title>
+<title>
+Himalaya School - Class 6 Concept
+</title>
 
 
 <style>
@@ -64,15 +66,15 @@ body {
     border-radius: 28px;
 
     background:
-        rgba(255,255,255,0.97);
+        rgba(255,255,255,.97);
 
     box-shadow:
         0 20px 60px
-        rgba(25,50,100,0.15);
+        rgba(25,50,100,.15);
 
     border:
         1px solid
-        rgba(20,40,80,0.08);
+        rgba(20,40,80,.08);
 }
 
 
@@ -101,7 +103,8 @@ body {
 
     border-radius: 18px;
 
-    background: #172b5c;
+    background:
+        #172b5c;
 
     color: white;
 
@@ -117,7 +120,7 @@ h1 {
 
     font-size: 26px;
 
-    letter-spacing: -0.5px;
+    letter-spacing: -.5px;
 }
 
 
@@ -126,7 +129,8 @@ h1 {
     margin:
         7px 0 12px;
 
-    color: #697386;
+    color:
+        #697386;
 
     font-size: 14px;
 }
@@ -141,9 +145,11 @@ h1 {
 
     border-radius: 20px;
 
-    background: #eef4ff;
+    background:
+        #eef4ff;
 
-    color: #24458c;
+    color:
+        #24458c;
 
     font-size: 13px;
 
@@ -186,7 +192,8 @@ input {
 
 input:focus {
 
-    border-color: #4778ff;
+    border-color:
+        #4778ff;
 
     box-shadow:
         0 0 0 4px
@@ -206,7 +213,8 @@ button {
 
     border-radius: 14px;
 
-    background: #172b5c;
+    background:
+        #172b5c;
 
     color: white;
 
@@ -247,9 +255,11 @@ button:disabled {
 
     display: block;
 
-    background: #fff0f0;
+    background:
+        #fff0f0;
 
-    color: #b42318;
+    color:
+        #b42318;
 }
 
 
@@ -257,9 +267,11 @@ button:disabled {
 
     display: block;
 
-    background: #eef4ff;
+    background:
+        #eef4ff;
 
-    color: #24458c;
+    color:
+        #24458c;
 }
 
 
@@ -269,7 +281,8 @@ button:disabled {
 
     text-align: center;
 
-    color: #8992a3;
+    color:
+        #8992a3;
 
     font-size: 12px;
 }
@@ -306,19 +319,16 @@ button:disabled {
     </div>
 
 
-    <form
-        id="loginForm"
-        method="GET"
-        target="_self"
-    >
+    <form id="loginForm">
+
 
         <label for="admissionNumber">
             Admission Number
         </label>
 
+
         <input
             id="admissionNumber"
-            name="loginId"
             type="text"
             autocomplete="username"
             placeholder="Enter Admission Number"
@@ -332,9 +342,9 @@ button:disabled {
             Passcode
         </label>
 
+
         <input
             id="passcode"
-            name="password"
             type="password"
             autocomplete="current-password"
             placeholder="Enter Passcode"
@@ -355,6 +365,7 @@ button:disabled {
             class="message"
         ></div>
 
+
     </form>
 
 
@@ -368,33 +379,66 @@ button:disabled {
 
 <script>
 
-/* ================================================
-   CLASS 6 CONCEPT APPS SCRIPT
-   ================================================ */
+
+// ==================================================
+// APPS SCRIPT
+// ==================================================
 
 const APPS_SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbyVBK9BHdBozVZXe5bHBkcuUEqkLafFj0KETPdjVQeP0hRCUSxGACj1rpimzlqGEBSZ/exec";
 
 
+// ==================================================
+// ELEMENTS
+// ==================================================
+
 const form =
-document.getElementById("loginForm");
+document.getElementById(
+    "loginForm"
+);
 
 const button =
-document.getElementById("loginButton");
+document.getElementById(
+    "loginButton"
+);
 
 const message =
-document.getElementById("message");
+document.getElementById(
+    "message"
+);
 
 const admissionInput =
-document.getElementById("admissionNumber");
+document.getElementById(
+    "admissionNumber"
+);
 
 const passcodeInput =
-document.getElementById("passcode");
+document.getElementById(
+    "passcode"
+);
 
 
-/* ================================================
-   SUBMIT
-   ================================================ */
+// ==================================================
+// MESSAGE
+// ==================================================
+
+function showMessage(
+    text,
+    type
+) {
+
+    message.textContent =
+        text;
+
+    message.className =
+        "message " + type;
+
+}
+
+
+// ==================================================
+// LOGIN
+// ==================================================
 
 form.addEventListener(
     "submit",
@@ -415,7 +459,9 @@ form.addEventListener(
                 .toUpperCase();
 
 
-        /* Empty check */
+        // ------------------------------------------
+        // Empty check
+        // ------------------------------------------
 
         if (
             !admissionNumber ||
@@ -428,13 +474,17 @@ form.addEventListener(
             );
 
             return;
+
         }
 
 
-        /* Admission number = password */
+        // ------------------------------------------
+        // Password check
+        // ------------------------------------------
 
         if (
-            admissionNumber !== passcode
+            admissionNumber !==
+            passcode
         ) {
 
             showMessage(
@@ -443,10 +493,13 @@ form.addEventListener(
             );
 
             return;
+
         }
 
 
-        /* Show loading */
+        // ------------------------------------------
+        // Disable button
+        // ------------------------------------------
 
         button.disabled = true;
 
@@ -461,50 +514,226 @@ form.addEventListener(
 
 
         /*
-         * IMPORTANT:
-         *
-         * We are NOT using fetch().
-         *
-         * The browser navigates directly
-         * to Google Apps Script.
+         * Create a unique callback function.
          */
 
-        const loginURL =
+        const callbackName =
+            "loginCallback_" +
+            Date.now();
+
+
+        /*
+         * Create script element.
+         *
+         * This avoids fetch/CORS.
+         */
+
+        const script =
+            document.createElement(
+                "script"
+            );
+
+
+        /*
+         * Callback receives Apps Script result.
+         */
+
+        window[callbackName] =
+            function(result) {
+
+                // Remove script
+                if (script.parentNode) {
+
+                    script.parentNode
+                        .removeChild(script);
+
+                }
+
+
+                // Delete callback
+                delete window[
+                    callbackName
+                ];
+
+
+                // Enable button
+                button.disabled = false;
+
+                button.textContent =
+                    "Login";
+
+
+                // ----------------------------------
+                // Server error
+                // ----------------------------------
+
+                if (
+                    !result ||
+                    result.success !== true
+                ) {
+
+                    showMessage(
+                        result &&
+                        result.message
+                            ? result.message
+                            : "Login failed.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                // ----------------------------------
+                // Already submitted
+                // ----------------------------------
+
+                if (
+                    result.submitted === true
+                ) {
+
+                    sessionStorage.setItem(
+                        "studentName",
+                        result.studentName || ""
+                    );
+
+                    sessionStorage.setItem(
+                        "studentClass",
+                        result.studentClass || ""
+                    );
+
+                    sessionStorage.setItem(
+                        "admissionNumber",
+                        result.admissionNumber || admissionNumber
+                    );
+
+
+                    window.location.href =
+                        result.redirectURL;
+
+                    return;
+
+                }
+
+
+                // ----------------------------------
+                // Successful login
+                // ----------------------------------
+
+                if (
+                    result.redirectURL
+                ) {
+
+                    sessionStorage.setItem(
+                        "studentName",
+                        result.studentName || ""
+                    );
+
+                    sessionStorage.setItem(
+                        "studentClass",
+                        result.studentClass || ""
+                    );
+
+                    sessionStorage.setItem(
+                        "admissionNumber",
+                        result.admissionNumber || admissionNumber
+                    );
+
+
+                    window.location.href =
+                        result.redirectURL;
+
+                    return;
+
+                }
+
+
+                // ----------------------------------
+                // No destination
+                // ----------------------------------
+
+                showMessage(
+                    "Examination page is not configured.",
+                    "error"
+                );
+
+            };
+
+
+        /*
+         * Build Apps Script URL.
+         */
+
+        const requestURL =
             APPS_SCRIPT_URL +
             "?action=login" +
             "&loginId=" +
-            encodeURIComponent(admissionNumber) +
+            encodeURIComponent(
+                admissionNumber
+            ) +
             "&password=" +
-            encodeURIComponent(passcode);
+            encodeURIComponent(
+                passcode
+            ) +
+            "&callback=" +
+            encodeURIComponent(
+                callbackName
+            );
 
 
-        window.location.href =
-            loginURL;
+        /*
+         * Add JSONP script to page.
+         */
+
+        script.src =
+            requestURL;
+
+
+        script.onerror =
+            function() {
+
+                if (
+                    script.parentNode
+                ) {
+
+                    script.parentNode
+                        .removeChild(script);
+
+                }
+
+
+                delete window[
+                    callbackName
+                ];
+
+
+                button.disabled =
+                    false;
+
+                button.textContent =
+                    "Login";
+
+
+                showMessage(
+                    "Unable to connect to the examination server. Please try again.",
+                    "error"
+                );
+
+            };
+
+
+        document.body.appendChild(
+            script
+        );
 
     }
 );
 
 
-/* ================================================
-   MESSAGE
-   ================================================ */
-
-function showMessage(
-    text,
-    type
-) {
-
-    message.textContent =
-        text;
-
-    message.className =
-        "message " + type;
-}
-
-
-/* ================================================
-   UPPERCASE ADMISSION NUMBER
-   ================================================ */
+// ==================================================
+// UPPERCASE ADMISSION NUMBER
+// ==================================================
 
 admissionInput.addEventListener(
     "input",
