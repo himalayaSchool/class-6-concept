@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Himalaya School - Class 6 CO Test</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+  background:#f3f6fc;
+  color:#172033;
+}
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #e1e6ef;
+  padding:14px 24px;
+}
+
+.header-inner{
+  max-width:1000px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo{
+  width:46px;
+  height:46px;
+  border-radius:13px;
+  background:#172b5c;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  font-weight:800;
+}
+
+.brand-title{
+  font-weight:800;
+  font-size:18px;
+}
+
+.brand-subtitle{
+  font-size:12px;
+  color:#697386;
+  margin-top:2px;
+}
+
+.timer-box{
+  text-align:center;
+  min-width:125px;
+  padding:8px 14px;
+  border-radius:12px;
+  background:#eef4ff;
+  color:#172b5c;
+}
+
+.timer-label{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+}
+
+#timer{
+  font-size:22px;
+  font-weight:800;
+  margin-top:2px;
+}
+
+.container{
+  max-width:900px;
+  margin:28px auto;
+  padding:0 18px 120px;
+}
+
+.student-card{
+  background:white;
+  border:1px solid #e1e6ef;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:20px;
+}
+
+.student-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.info-label{
+  font-size:11px;
+  color:#7a8495;
+  text-transform:uppercase;
+  font-weight:700;
+}
+
+.info-value{
+  margin-top:4px;
+  font-weight:700;
+  font-size:15px;
+}
+
+.question{
+  background:white;
+  border:1px solid #e1e6ef;
+  border-radius:18px;
+  padding:24px;
+  margin-bottom:18px;
+}
+
+.question-number{
+  color:#315fc9;
+  font-size:13px;
+  font-weight:800;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.question-text{
+  font-size:17px;
+  line-height:1.55;
+  font-weight:600;
+  margin-bottom:18px;
+}
+
+.option{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:13px 14px;
+  margin:9px 0;
+  border:1px solid #dce2ec;
+  border-radius:12px;
+  cursor:pointer;
+  transition:.15s;
+}
+
+.option:hover{
+  background:#f7f9fd;
+  border-color:#9eb5e9;
+}
+
+.option input{
+  margin-top:3px;
+  accent-color:#172b5c;
+}
+
+.option span{
+  line-height:1.4;
+}
+
+.bottom-bar{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:90;
+  background:rgba(255,255,255,.97);
+  border-top:1px solid #dfe4ed;
+  padding:14px 20px;
+}
+
+.bottom-inner{
+  max-width:900px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.logout-btn,
+.submit-btn{
+  border:0;
+  border-radius:12px;
+  padding:13px 22px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.logout-btn{
+  background:#eef1f6;
+  color:#273247;
+}
+
+.submit-btn{
+  background:#172b5c;
+  color:white;
+}
+
+.submit-btn:disabled,
+.logout-btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+.message{
+  position:fixed;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:200;
+  width:min(90%,420px);
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 20px 60px rgba(20,35,70,.25);
+  display:none;
+  text-align:center;
+}
+
+.message h3{
+  margin:0 0 10px;
+  color:#172b5c;
+}
+
+.message p{
+  color:#5f6979;
+  line-height:1.5;
+}
+
+.message button{
+  margin-top:10px;
+  padding:11px 20px;
+  border:0;
+  border-radius:10px;
+  background:#172b5c;
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+}
+
+@media(max-width:650px){
+  .header{
+    padding:10px 14px;
+  }
+
+  .brand-title{
+    font-size:15px;
+  }
+
+  .brand-subtitle{
+    font-size:10px;
+  }
+
+  .logo{
+    width:40px;
+    height:40px;
+    font-size:19px;
+  }
+
+  .timer-box{
+    min-width:105px;
+  }
+
+  #timer{
+    font-size:19px;
+  }
+
+  .student-grid{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .question{
+    padding:18px;
+  }
+
+  .bottom-inner{
+    flex-direction:row;
+  }
+
+  .logout-btn,
+  .submit-btn{
+    flex:1;
+    padding:12px 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="header-inner">
+
+    <div class="brand">
+      <div class="logo">H</div>
+      <div>
+        <div class="brand-title">HIMALAYA</div>
+        <div class="brand-subtitle">Class 6 CO Examination</div>
+      </div>
+    </div>
+
+    <div class="timer-box">
+      <div class="timer-label">Time Remaining</div>
+      <div id="timer">60:00</div>
+    </div>
+
+  </div>
+</header>
+
+
+<main class="container">
+
+  <section class="student-card">
+
+    <div class="student-grid">
+
+      <div>
+        <div class="info-label">Student</div>
+        <div class="info-value" id="studentName">Loading...</div>
+      </div>
+
+      <div>
+        <div class="info-label">Admission Number</div>
+        <div class="info-value" id="admissionNumber">Loading...</div>
+      </div>
+
+      <div>
+        <div class="info-label">Class</div>
+        <div class="info-value" id="studentClass">6 CO</div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TEST QUESTIONS
+       These are temporary test questions for verifying
+       the complete login -> timer -> submit -> result flow.
+       Replace the question text/options with the actual
+       Class 6 CO questions later.
+  -->
+
+  <section class="question">
+
+    <div class="question-number">Question 1</div>
+
+    <div class="question-text">
+      Which of the following is a physical quantity?
+    </div>
+
+    <label class="option">
+      <input type="radio" name="q1" value="A">
+      <span>A. Length</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q1" value="B">
+      <span>B. Beauty</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q1" value="C">
+      <span>C. Happiness</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q1" value="D">
+      <span>D. Intelligence</span>
+    </label>
+
+  </section>
+
+
+  <section class="question">
+
+    <div class="question-number">Question 2</div>
+
+    <div class="question-text">
+      Which SI unit is used to measure time?
+    </div>
+
+    <label class="option">
+      <input type="radio" name="q2" value="A">
+      <span>A. Second</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q2" value="B">
+      <span>B. Metre</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q2" value="C">
+      <span>C. Kilogram</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q2" value="D">
+      <span>D. Newton</span>
+    </label>
+
+  </section>
+
+
+  <section class="question">
+
+    <div class="question-number">Question 3</div>
+
+    <div class="question-text">
+      Which instrument is commonly used to measure temperature?
+    </div>
+
+    <label class="option">
+      <input type="radio" name="q3" value="A">
+      <span>A. Thermometer</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q3" value="B">
+      <span>B. Barometer</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q3" value="C">
+      <span>C. Ammeter</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q3" value="D">
+      <span>D. Stopwatch</span>
+    </label>
+
+  </section>
+
+
+  <section class="question">
+
+    <div class="question-number">Question 4</div>
+
+    <div class="question-text">
+      Which of the following is the SI unit of length?
+    </div>
+
+    <label class="option">
+      <input type="radio" name="q4" value="A">
+      <span>A. Metre</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q4" value="B">
+      <span>B. Second</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q4" value="C">
+      <span>C. Kilogram</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q4" value="D">
+      <span>D. Ampere</span>
+    </label>
+
+  </section>
+
+
+  <section class="question">
+
+    <div class="question-number">Question 5</div>
+
+    <div class="question-text">
+      Which quantity can be measured using a stopwatch?
+    </div>
+
+    <label class="option">
+      <input type="radio" name="q5" value="A">
+      <span>A. Time interval</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q5" value="B">
+      <span>B. Mass</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q5" value="C">
+      <span>C. Length</span>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="q5" value="D">
+      <span>D. Temperature</span>
+    </label>
+
+  </section>
+
+</main>
+
+
+<div class="bottom-bar">
+
+  <div class="bottom-inner">
+
+    <button
+      class="logout-btn"
+      id="logoutButton"
+      type="button"
+    >
+      Logout
+    </button>
+
+    <button
+      class="submit-btn"
+      id="submitButton"
+      type="button"
+    >
+      Submit Exam
+    </button>
+
+  </div>
+
+</div>
+
+
+<div class="message" id="messageBox">
+
+  <h3 id="messageTitle">Message</h3>
+
+  <p id="messageText"></p>
+
+  <button
+    id="messageButton"
+    type="button"
+  >
+    OK
+  </button>
+
+</div>
+
+
+<script>
+
+const APPS_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbyVBK9BHdBozVZXe5bHBkcuUEqkLafFj0KETPdjVQeP0hRCUSxGACj1rpimzlqGEBSZ/exec";
+
+
+/* =====================================================
+   STUDENT INFORMATION
+   ===================================================== */
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+
+let admissionNumber =
+  params.get("admissionNumber");
+
+
+if (admissionNumber) {
+
+  admissionNumber =
+    admissionNumber
+      .trim()
+      .toUpperCase();
+
+}
+
+
+const studentName =
+  sessionStorage.getItem(
+    "studentName"
+  ) || "Student";
+
+
+const studentClass =
+  sessionStorage.getItem(
+    "studentClass"
+  ) || "6 CO";
+
+
+const startTime =
+  sessionStorage.getItem(
+    "startTime"
+  );
+
+
+const endTime =
+  sessionStorage.getItem(
+    "endTime"
+  );
+
+
+document.getElementById(
+  "studentName"
+).textContent =
+  studentName;
+
+
+document.getElementById(
+  "admissionNumber"
+).textContent =
+  admissionNumber ||
+  "Not available";
+
+
+document.getElementById(
+  "studentClass"
+).textContent =
+  studentClass;
+
+
+/* =====================================================
+   IF ADMISSION NUMBER IS MISSING
+   ===================================================== */
+
+if (!admissionNumber) {
+
+  showMessage(
+    "Login Required",
+    "Please login again before starting the examination.",
+    function(){
+      window.location.href =
+        "../index.html";
+    }
+  );
+
+}
+
+
+/* =====================================================
+   TIMER
+   ===================================================== */
+
+let timerInterval = null;
+
+let submitting = false;
+
+
+function updateTimer() {
+
+  if (!endTime) {
+
+    document.getElementById(
+      "timer"
+    ).textContent = "60:00";
+
+    return;
+
+  }
+
+
+  const end =
+    new Date(endTime).getTime();
+
+
+  const now =
+    Date.now();
+
+
+  let remaining =
+    end - now;
+
+
+  if (remaining <= 0) {
+
+    document.getElementById(
+      "timer"
+    ).textContent = "00:00";
+
+    clearInterval(
+      timerInterval
+    );
+
+    autoSubmit();
+
+    return;
+
+  }
+
+
+  const totalSeconds =
+    Math.floor(
+      remaining / 1000
+    );
+
+
+  const minutes =
+    Math.floor(
+      totalSeconds / 60
+    );
+
+
+  const seconds =
+    totalSeconds % 60;
+
+
+  document.getElementById(
+    "timer"
+  ).textContent =
+    String(minutes).padStart(2,"0")
+    + ":" +
+    String(seconds).padStart(2,"0");
+
+}
+
+
+updateTimer();
+
+
+timerInterval =
+  setInterval(
+    updateTimer,
+    1000
+  );
+
+
+/* =====================================================
+   COLLECT ANSWERS
+   ===================================================== */
+
+function collectAnswers() {
+
+  const answers = {};
+
+
+  for (
+    let i = 1;
+    i <= 5;
+    i++
+  ) {
+
+    const selected =
+      document.querySelector(
+        'input[name="q' +
+        i +
+        '"]:checked'
+      );
+
+
+    if (selected) {
+
+      answers[String(i)] =
+        selected.value;
+
+    }
+
+  }
+
+
+  return answers;
+
+}
+
+
+/* =====================================================
+   SUBMIT EXAM
+   ===================================================== */
+
+async function submitExam(
+  automatic = false
+) {
+
+  if (submitting) {
+
+    return;
+
+  }
+
+
+  if (!automatic) {
+
+    const confirmed =
+      confirm(
+        "Are you sure you want to submit the exam?"
+      );
+
+
+    if (!confirmed) {
+
+      return;
+
+    }
+
+  }
+
+
+  submitting = true;
+
+
+  document.getElementById(
+    "submitButton"
+  ).disabled = true;
+
+
+  document.getElementById(
+    "logoutButton"
+  ).disabled = true;
+
+
+  if (automatic) {
+
+    showMessage(
+      "Time Over",
+      "Your 60-minute examination time has ended. Your answers are being submitted.",
+      null,
+      false
+    );
+
+  } else {
+
+    showMessage(
+      "Submitting",
+      "Please wait while your answers are submitted.",
+      null,
+      false
+    );
+
+  }
+
+
+  const answers =
+    collectAnswers();
+
+
+  try {
+
+    /*
+     * Submit through a normal HTML GET form.
+     * This avoids the browser CORS/fetch problem.
+     * Apps Script doGet() must handle action=submitExam.
+     */
+
+    const form =
+      document.createElement("form");
+
+    form.method = "GET";
+    form.action = APPS_SCRIPT_URL;
+    form.style.display = "none";
+
+    function addField(name, value) {
+      const input =
+        document.createElement("input");
+      input.type = "hidden";
+      input.name = name;
+      input.value = value;
+      form.appendChild(input);
+    }
+
+    addField("action", "submitExam");
+    addField("admissionNumber", admissionNumber);
+
+    const answers = collectAnswers();
+
+    Object.keys(answers).forEach(function(q) {
+      addField("q" + q, answers[q]);
+    });
+
+    document.body.appendChild(form);
+    form.submit();
+
+    return;
+
+  } catch (error) {
+
+    console.error(error);
+
+
+    submitting = false;
+
+
+    document.getElementById(
+      "submitButton"
+    ).disabled = false;
+
+
+    document.getElementById(
+      "logoutButton"
+    ).disabled = false;
+
+
+    showMessage(
+      "Connection Error",
+      "The examination server could not be reached. Your answers have not been confirmed as submitted. Please press Submit once again.",
+      null,
+      true
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   AUTO SUBMIT
+   ===================================================== */
+
+function autoSubmit() {
+
+  if (!submitting) {
+
+    submitExam(true);
+
+  }
+
+}
+
+
+/* =====================================================
+   LOGOUT
+   ===================================================== */
+
+document.getElementById(
+  "logoutButton"
+).addEventListener(
+  "click",
+  function(){
+
+    if (submitting) {
+
+      return;
+
+    }
+
+
+    const confirmed =
+      confirm(
+        "Are you sure you want to logout? Your examination will not be submitted."
+      );
+
+
+    if (!confirmed) {
+
+      return;
+
+    }
+
+
+    clearInterval(
+      timerInterval
+    );
+
+
+    sessionStorage.removeItem(
+      "studentName"
+    );
+
+    sessionStorage.removeItem(
+      "studentClass"
+    );
+
+    sessionStorage.removeItem(
+      "startTime"
+    );
+
+    sessionStorage.removeItem(
+      "endTime"
+    );
+
+    sessionStorage.removeItem(
+      "examSubmitted"
+    );
+
+
+    window.location.href =
+      "../index.html";
+
+  }
+);
+
+
+/* =====================================================
+   SUBMIT BUTTON
+   ===================================================== */
+
+document.getElementById(
+  "submitButton"
+).addEventListener(
+  "click",
+  function(){
+
+    submitExam(false);
+
+  }
+);
+
+
+/* =====================================================
+   MESSAGE BOX
+   ===================================================== */
+
+function showMessage(
+  title,
+  text,
+  callback,
+  showButton = true
+) {
+
+  document.getElementById(
+    "messageTitle"
+  ).textContent =
+    title;
+
+
+  document.getElementById(
+    "messageText"
+  ).textContent =
+    text;
+
+
+  const box =
+    document.getElementById(
+      "messageBox"
+    );
+
+
+  const button =
+    document.getElementById(
+      "messageButton"
+    );
+
+
+  button.style.display =
+    showButton
+      ? "inline-block"
+      : "none";
+
+
+  button.onclick =
+    function(){
+
+      box.style.display =
+        "none";
+
+      if (callback) {
+
+        callback();
+
+      }
+
+    };
+
+
+  box.style.display =
+    "block";
+
+}
+
+</script>
+
+</body>
+</html>
