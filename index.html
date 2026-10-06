@@ -17,18 +17,32 @@
 
 <title>Himalaya School - Class 6 Concept</title>
 
+
 <style>
+
+/* =====================================================
+   RESET
+   ===================================================== */
 
 *{
   box-sizing:border-box;
 }
 
+
+/* =====================================================
+   BODY
+   ===================================================== */
+
 body{
+
   margin:0;
+
   min-height:100vh;
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 
   padding:20px;
@@ -49,18 +63,26 @@ body{
     );
 
   color:#172033;
+
 }
 
+
+/* =====================================================
+   LOGIN CARD
+   ===================================================== */
+
 .card{
+
   width:100%;
-  max-width:420px;
 
-  padding:32px;
+  max-width:560px;
 
-  border-radius:28px;
+  padding:42px;
+
+  border-radius:30px;
 
   background:
-    rgba(255,255,255,.97);
+    rgba(255,255,255,.98);
 
   box-shadow:
     0 20px 60px
@@ -69,174 +91,332 @@ body{
   border:
     1px solid
     rgba(20,40,80,.08);
+
 }
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
 
 .header{
+
   text-align:center;
-  margin-bottom:28px;
+
+  margin-bottom:34px;
+
 }
+
 
 .logo{
-  width:64px;
-  height:64px;
+
+  width:76px;
+
+  height:76px;
 
   margin:
-    0 auto 15px;
+    0 auto 18px;
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 
-  border-radius:18px;
+  border-radius:20px;
 
   background:#172b5c;
+
   color:white;
 
-  font-size:28px;
+  font-size:36px;
+
   font-weight:800;
+
 }
+
 
 h1{
+
   margin:0;
 
-  font-size:26px;
-  letter-spacing:-.5px;
+  font-size:34px;
+
+  letter-spacing:-.8px;
+
 }
 
+
 .subtitle{
+
   margin:
-    7px 0 12px;
+    8px 0 15px;
 
   color:#697386;
 
-  font-size:14px;
+  font-size:17px;
+
 }
 
+
 .exam{
+
   display:inline-block;
 
   padding:
-    7px 13px;
+    9px 17px;
 
-  border-radius:20px;
+  border-radius:22px;
 
   background:#eef4ff;
 
   color:#24458c;
 
-  font-size:13px;
-  font-weight:700;
+  font-size:14px;
+
+  font-weight:800;
+
 }
 
+
+/* =====================================================
+   FORM
+   ===================================================== */
+
 label{
+
   display:block;
 
   margin:
-    18px 0 8px;
+    20px 0 9px;
 
-  font-size:13px;
+  font-size:15px;
+
   font-weight:700;
+
 }
 
+
 input{
+
   width:100%;
 
-  padding:15px;
+  padding:17px;
 
   border:
     1px solid
     #d7ddea;
 
-  border-radius:14px;
+  border-radius:15px;
 
   background:white;
 
-  font-size:16px;
+  color:#172033;
+
+  font-size:17px;
 
   outline:none;
+
 }
 
+
 input:focus{
+
   border-color:#4778ff;
 
   box-shadow:
     0 0 0 4px
     rgba(71,120,255,.10);
+
 }
 
+
+input:disabled{
+
+  background:#eef1f6;
+
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+   ===================================================== */
+
 button{
+
   width:100%;
 
-  margin-top:23px;
+  margin-top:26px;
 
-  padding:15px;
+  padding:17px;
 
   border:0;
 
-  border-radius:14px;
+  border-radius:15px;
 
   background:#172b5c;
 
   color:white;
 
-  font-size:16px;
-  font-weight:700;
+  font-size:17px;
+
+  font-weight:800;
 
   cursor:pointer;
+
+  transition:
+    opacity .2s,
+    transform .1s;
+
 }
+
+
+button:hover{
+
+  opacity:.94;
+
+}
+
+
+button:active{
+
+  transform:scale(.99);
+
+}
+
 
 button:disabled{
+
   opacity:.6;
+
   cursor:not-allowed;
+
 }
+
+
+/* =====================================================
+   MESSAGE
+   ===================================================== */
 
 .message{
+
   display:none;
 
-  margin-top:16px;
+  margin-top:17px;
 
   padding:
-    12px 14px;
+    14px 16px;
 
-  border-radius:12px;
+  border-radius:13px;
 
   font-size:14px;
-  line-height:1.4;
+
+  line-height:1.5;
+
 }
 
+
 .message.error{
+
   display:block;
 
   background:#fff0f0;
 
   color:#b42318;
+
 }
 
+
 .message.info{
+
   display:block;
 
   background:#eef4ff;
 
   color:#24458c;
+
 }
 
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
 .footer{
-  margin-top:20px;
+
+  margin-top:26px;
 
   text-align:center;
 
   color:#8992a3;
 
-  font-size:12px;
+  font-size:13px;
+
 }
 
-/*
-  Hidden iframe used for cross-origin
-  Apps Script login.
-*/
 
-#loginFrame{
-  display:none;
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media(max-width:600px){
+
+  body{
+
+    padding:14px;
+
+  }
+
+
+  .card{
+
+    padding:28px 22px;
+
+    border-radius:24px;
+
+  }
+
+
+  .logo{
+
+    width:64px;
+
+    height:64px;
+
+    font-size:30px;
+
+  }
+
+
+  h1{
+
+    font-size:29px;
+
+  }
+
+
+  .subtitle{
+
+    font-size:15px;
+
+  }
+
+
+  input{
+
+    padding:15px;
+
+    font-size:16px;
+
+  }
+
+
+  button{
+
+    padding:15px;
+
+  }
+
 }
 
 </style>
@@ -247,47 +427,61 @@ button:disabled{
 <body>
 
 
+<!-- =====================================================
+     LOGIN CARD
+     ===================================================== -->
+
 <div class="card">
 
 
+  <!-- ===================================================
+       HEADER
+       =================================================== -->
+
   <div class="header">
+
 
     <div class="logo">
       H
     </div>
 
+
     <h1>
       HIMALAYA
     </h1>
 
-    <p class="subtitle">
+
+    <div class="subtitle">
       Student Examination Portal
-    </p>
+    </div>
+
 
     <div class="exam">
       CLASS 6 — CONCEPT
     </div>
 
+
   </div>
 
 
-  <!--
-    The form submits directly to Apps Script.
-
-    The response opens inside the hidden iframe.
-    Apps Script then redirects the TOP window
-    to the examination page.
-  -->
+  <!-- ===================================================
+       LOGIN FORM
+       =================================================== -->
 
   <form
     id="loginForm"
     method="GET"
-    target="loginFrame"
   >
 
-    <label for="admissionNumber">
+
+    <!-- ADMISSION NUMBER -->
+
+    <label
+      for="admissionNumber"
+    >
       Admission Number
     </label>
+
 
     <input
       id="admissionNumber"
@@ -301,9 +495,14 @@ button:disabled{
     >
 
 
-    <label for="passcode">
+    <!-- PASSCODE -->
+
+    <label
+      for="passcode"
+    >
       Passcode
     </label>
+
 
     <input
       id="passcode"
@@ -315,12 +514,16 @@ button:disabled{
     >
 
 
+    <!-- ACTION -->
+
     <input
       type="hidden"
       name="action"
       value="login"
     >
 
+
+    <!-- LOGIN BUTTON -->
 
     <button
       id="loginButton"
@@ -330,19 +533,18 @@ button:disabled{
     </button>
 
 
+    <!-- MESSAGE -->
+
     <div
       id="message"
       class="message"
     ></div>
 
+
   </form>
 
 
-  <iframe
-    id="loginFrame"
-    name="loginFrame"
-  ></iframe>
-
+  <!-- FOOTER -->
 
   <div class="footer">
     Secure Student Examination Login
@@ -352,10 +554,11 @@ button:disabled{
 </div>
 
 
+
 <script>
 
 /* =====================================================
-   APPS SCRIPT
+   GOOGLE APPS SCRIPT WEB APP
    ===================================================== */
 
 const APPS_SCRIPT_URL =
@@ -371,20 +574,24 @@ const form =
     "loginForm"
   );
 
+
 const button =
   document.getElementById(
     "loginButton"
   );
+
 
 const message =
   document.getElementById(
     "message"
   );
 
+
 const admissionInput =
   document.getElementById(
     "admissionNumber"
   );
+
 
 const passcodeInput =
   document.getElementById(
@@ -393,7 +600,7 @@ const passcodeInput =
 
 
 /* =====================================================
-   APPS SCRIPT URL
+   APPS SCRIPT FORM ACTION
    ===================================================== */
 
 form.action =
@@ -401,7 +608,7 @@ form.action =
 
 
 /* =====================================================
-   MESSAGE
+   SHOW MESSAGE
    ===================================================== */
 
 function showMessage(
@@ -413,13 +620,30 @@ function showMessage(
     text;
 
   message.className =
-    "message " + type;
+    "message " +
+    type;
 
 }
 
 
 /* =====================================================
-   LOGIN
+   ADMISSION NUMBER
+   ALWAYS UPPERCASE
+   ===================================================== */
+
+admissionInput.addEventListener(
+  "input",
+  function(){
+
+    this.value =
+      this.value.toUpperCase();
+
+  }
+);
+
+
+/* =====================================================
+   LOGIN SUBMISSION
    ===================================================== */
 
 form.addEventListener(
@@ -431,15 +655,16 @@ form.addEventListener(
         .trim()
         .toUpperCase();
 
+
     const passcode =
       passcodeInput.value
         .trim()
         .toUpperCase();
 
 
-    /*
-      Client-side validation.
-    */
+    /* -----------------------------------------------
+       CHECK EMPTY FIELDS
+       ----------------------------------------------- */
 
     if(
       !admissionNumber ||
@@ -458,9 +683,10 @@ form.addEventListener(
     }
 
 
-    /*
-      Admission number is the passcode.
-    */
+    /* -----------------------------------------------
+       CURRENT SYSTEM:
+       ADMISSION NUMBER = PASSCODE
+       ----------------------------------------------- */
 
     if(
       admissionNumber !==
@@ -479,11 +705,9 @@ form.addEventListener(
     }
 
 
-    /*
-      Store temporary information.
-      The Apps Script will independently
-      verify the student.
-    */
+    /* -----------------------------------------------
+       SAVE ADMISSION NUMBER LOCALLY
+       ----------------------------------------------- */
 
     sessionStorage.setItem(
       "admissionNumber",
@@ -491,41 +715,34 @@ form.addEventListener(
     );
 
 
-    /*
-      Show loading state.
-
-      DO NOT preventDefault.
-
-      The form must actually submit
-      to Apps Script.
-    */
+    /* -----------------------------------------------
+       IMPORTANT:
+       DO NOT USE event.preventDefault() HERE.
+       
+       The browser must submit the form directly
+       to the Apps Script Web App.
+       ----------------------------------------------- */
 
     button.disabled =
       true;
 
+
     button.textContent =
       "Checking...";
+
+
+    admissionInput.disabled =
+      true;
+
+
+    passcodeInput.disabled =
+      true;
 
 
     showMessage(
       "Verifying your details...",
       "info"
     );
-
-  }
-);
-
-
-/* =====================================================
-   UPPERCASE ADMISSION NUMBER
-   ===================================================== */
-
-admissionInput.addEventListener(
-  "input",
-  function(){
-
-    this.value =
-      this.value.toUpperCase();
 
   }
 );
