@@ -1,36 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Himalaya School - Class 6 CO Test</title>
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>Himalaya School - Class 6 Concept Test</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
   background:#f3f6fc;
   color:#172033;
 }
+
+/* ==============================
+   HEADER
+   ============================== */
 
 .header{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(255,255,255,.96);
+
+  background:rgba(255,255,255,.97);
   backdrop-filter:blur(12px);
+
   border-bottom:1px solid #e1e6ef;
+
   padding:14px 24px;
 }
 
 .header-inner{
   max-width:1000px;
   margin:auto;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   gap:20px;
 }
 
@@ -43,12 +69,16 @@ body{
 .logo{
   width:46px;
   height:46px;
+
   border-radius:13px;
+
   background:#172b5c;
   color:white;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-size:22px;
   font-weight:800;
 }
@@ -64,102 +94,168 @@ body{
   margin-top:2px;
 }
 
-.timer-box{
-  text-align:center;
-  min-width:125px;
-  padding:8px 14px;
+/* No timer */
+
+.exam-badge{
+  padding:9px 14px;
+
   border-radius:12px;
+
   background:#eef4ff;
   color:#172b5c;
-}
 
-.timer-label{
-  font-size:11px;
-  font-weight:700;
-  text-transform:uppercase;
-}
-
-#timer{
-  font-size:22px;
+  font-size:12px;
   font-weight:800;
-  margin-top:2px;
+
+  white-space:nowrap;
 }
+
+/* ==============================
+   MAIN
+   ============================== */
 
 .container{
   max-width:900px;
+
   margin:28px auto;
-  padding:0 18px 120px;
+
+  padding:
+    0 18px
+    120px;
 }
+
+/* ==============================
+   STUDENT CARD
+   ============================== */
 
 .student-card{
   background:white;
+
   border:1px solid #e1e6ef;
+
   border-radius:18px;
+
   padding:20px;
+
   margin-bottom:20px;
 }
 
 .student-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:15px;
 }
 
 .info-label{
   font-size:11px;
+
   color:#7a8495;
+
   text-transform:uppercase;
+
   font-weight:700;
 }
 
 .info-value{
   margin-top:4px;
+
   font-weight:700;
+
   font-size:15px;
 }
 
+/* ==============================
+   SUBJECT TITLE
+   ============================== */
+
+.subject-title{
+  margin:
+    28px 0 15px;
+
+  padding:
+    12px 16px;
+
+  border-radius:12px;
+
+  background:#172b5c;
+
+  color:white;
+
+  font-size:17px;
+
+  font-weight:800;
+}
+
+/* ==============================
+   QUESTION
+   ============================== */
+
 .question{
   background:white;
+
   border:1px solid #e1e6ef;
+
   border-radius:18px;
+
   padding:24px;
+
   margin-bottom:18px;
 }
 
 .question-number{
   color:#315fc9;
+
   font-size:13px;
+
   font-weight:800;
+
   text-transform:uppercase;
+
   margin-bottom:10px;
 }
 
 .question-text{
   font-size:17px;
+
   line-height:1.55;
+
   font-weight:600;
+
   margin-bottom:18px;
 }
 
 .option{
   display:flex;
+
   align-items:flex-start;
+
   gap:12px;
+
   padding:13px 14px;
+
   margin:9px 0;
+
   border:1px solid #dce2ec;
+
   border-radius:12px;
+
   cursor:pointer;
+
   transition:.15s;
 }
 
 .option:hover{
   background:#f7f9fd;
+
   border-color:#9eb5e9;
 }
 
 .option input{
   margin-top:3px;
+
   accent-color:#172b5c;
 }
 
@@ -167,89 +263,143 @@ body{
   line-height:1.4;
 }
 
+/* ==============================
+   BOTTOM BAR
+   ============================== */
+
 .bottom-bar{
   position:fixed;
+
   bottom:0;
   left:0;
   right:0;
+
   z-index:90;
+
   background:rgba(255,255,255,.97);
+
   border-top:1px solid #dfe4ed;
+
   padding:14px 20px;
 }
 
 .bottom-inner{
   max-width:900px;
+
   margin:auto;
+
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
+
   gap:15px;
 }
 
 .logout-btn,
 .submit-btn{
   border:0;
+
   border-radius:12px;
+
   padding:13px 22px;
+
   font-size:15px;
+
   font-weight:700;
+
   cursor:pointer;
 }
 
 .logout-btn{
   background:#eef1f6;
+
   color:#273247;
 }
 
 .submit-btn{
   background:#172b5c;
+
   color:white;
 }
 
 .submit-btn:disabled,
 .logout-btn:disabled{
   opacity:.6;
+
   cursor:not-allowed;
 }
 
+/* ==============================
+   MESSAGE BOX
+   ============================== */
+
 .message{
   position:fixed;
+
   left:50%;
   top:50%;
-  transform:translate(-50%,-50%);
+
+  transform:
+    translate(-50%,-50%);
+
   z-index:200;
+
   width:min(90%,420px);
+
   background:white;
+
   border-radius:18px;
+
   padding:25px;
-  box-shadow:0 20px 60px rgba(20,35,70,.25);
+
+  box-shadow:
+    0 20px 60px
+    rgba(20,35,70,.25);
+
   display:none;
+
   text-align:center;
 }
 
 .message h3{
-  margin:0 0 10px;
+  margin:
+    0 0 10px;
+
   color:#172b5c;
 }
 
 .message p{
   color:#5f6979;
+
   line-height:1.5;
 }
 
 .message button{
   margin-top:10px;
+
   padding:11px 20px;
+
   border:0;
+
   border-radius:10px;
+
   background:#172b5c;
+
   color:white;
+
   font-weight:700;
+
   cursor:pointer;
 }
 
+/* ==============================
+   MOBILE
+   ============================== */
+
 @media(max-width:650px){
+
   .header{
     padding:10px 14px;
   }
@@ -268,21 +418,23 @@ body{
     font-size:19px;
   }
 
-  .timer-box{
-    min-width:105px;
-  }
-
-  #timer{
-    font-size:19px;
+  .exam-badge{
+    font-size:10px;
+    padding:8px 9px;
   }
 
   .student-grid{
     grid-template-columns:1fr;
+
     gap:10px;
   }
 
   .question{
     padding:18px;
+  }
+
+  .question-text{
+    font-size:16px;
   }
 
   .bottom-inner{
@@ -292,227 +444,877 @@ body{
   .logout-btn,
   .submit-btn{
     flex:1;
-    padding:12px 10px;
+
+    padding:
+      12px 10px;
   }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =================================================
+     HEADER
+     ================================================= -->
+
 <header class="header">
+
   <div class="header-inner">
 
     <div class="brand">
-      <div class="logo">H</div>
-      <div>
-        <div class="brand-title">HIMALAYA</div>
-        <div class="brand-subtitle">Class 6 CO Examination</div>
+
+      <div class="logo">
+        H
       </div>
+
+      <div>
+
+        <div class="brand-title">
+          HIMALAYA
+        </div>
+
+        <div class="brand-subtitle">
+          Class 6 Concept Examination
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="timer-box">
-      <div class="timer-label">Time Remaining</div>
-      <div id="timer">60:00</div>
+
+    <div class="exam-badge">
+      CLASS 6 CONCEPT
     </div>
 
   </div>
+
 </header>
 
 
+
+<!-- =================================================
+     MAIN
+     ================================================= -->
+
 <main class="container">
+
+
+  <!-- STUDENT INFORMATION -->
 
   <section class="student-card">
 
     <div class="student-grid">
 
-      <div>
-        <div class="info-label">Student</div>
-        <div class="info-value" id="studentName">Loading...</div>
-      </div>
 
       <div>
-        <div class="info-label">Admission Number</div>
-        <div class="info-value" id="admissionNumber">Loading...</div>
+
+        <div class="info-label">
+          Student
+        </div>
+
+        <div
+          class="info-value"
+          id="studentName"
+        >
+          Loading...
+        </div>
+
       </div>
+
 
       <div>
-        <div class="info-label">Class</div>
-        <div class="info-value" id="studentClass">6 CO</div>
+
+        <div class="info-label">
+          Admission Number
+        </div>
+
+        <div
+          class="info-value"
+          id="admissionNumber"
+        >
+          Loading...
+        </div>
+
       </div>
 
+
+      <div>
+
+        <div class="info-label">
+          Class
+        </div>
+
+        <div
+          class="info-value"
+          id="studentClass"
+        >
+          6 Concept
+        </div>
+
+      </div>
+
+
     </div>
 
   </section>
 
 
-  <!-- TEST QUESTIONS
-       These are temporary test questions for verifying
-       the complete login -> timer -> submit -> result flow.
-       Replace the question text/options with the actual
-       Class 6 CO questions later.
-  -->
+
+  <!-- =================================================
+       MATHEMATICS
+       ================================================= -->
+
+  <div class="subject-title">
+    MATHEMATICS
+  </div>
+
+
+  <!-- QUESTION 1 -->
 
   <section class="question">
 
-    <div class="question-number">Question 1</div>
-
-    <div class="question-text">
-      Which of the following is a physical quantity?
+    <div class="question-number">
+      Question 1
     </div>
 
-    <label class="option">
-      <input type="radio" name="q1" value="A">
-      <span>A. Length</span>
-    </label>
+    <div class="question-text">
+
+      What is the value of
+      25 + 37?
+
+    </div>
+
 
     <label class="option">
-      <input type="radio" name="q1" value="B">
-      <span>B. Beauty</span>
+
+      <input
+        type="radio"
+        name="q1"
+        value="A"
+      >
+
+      <span>
+        A. 52
+      </span>
+
     </label>
 
-    <label class="option">
-      <input type="radio" name="q1" value="C">
-      <span>C. Happiness</span>
-    </label>
 
     <label class="option">
-      <input type="radio" name="q1" value="D">
-      <span>D. Intelligence</span>
+
+      <input
+        type="radio"
+        name="q1"
+        value="B"
+      >
+
+      <span>
+        B. 62
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q1"
+        value="C"
+      >
+
+      <span>
+        C. 72
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q1"
+        value="D"
+      >
+
+      <span>
+        D. 82
+      </span>
+
     </label>
 
   </section>
 
+
+
+  <!-- QUESTION 2 -->
 
   <section class="question">
 
-    <div class="question-number">Question 2</div>
-
-    <div class="question-text">
-      Which SI unit is used to measure time?
+    <div class="question-number">
+      Question 2
     </div>
 
-    <label class="option">
-      <input type="radio" name="q2" value="A">
-      <span>A. Second</span>
-    </label>
+    <div class="question-text">
+
+      Which fraction is equivalent to
+      1/2?
+
+    </div>
+
 
     <label class="option">
-      <input type="radio" name="q2" value="B">
-      <span>B. Metre</span>
+
+      <input
+        type="radio"
+        name="q2"
+        value="A"
+      >
+
+      <span>
+        A. 2/3
+      </span>
+
     </label>
 
-    <label class="option">
-      <input type="radio" name="q2" value="C">
-      <span>C. Kilogram</span>
-    </label>
 
     <label class="option">
-      <input type="radio" name="q2" value="D">
-      <span>D. Newton</span>
+
+      <input
+        type="radio"
+        name="q2"
+        value="B"
+      >
+
+      <span>
+        B. 2/4
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q2"
+        value="C"
+      >
+
+      <span>
+        C. 3/5
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q2"
+        value="D"
+      >
+
+      <span>
+        D. 4/5
+      </span>
+
     </label>
 
   </section>
 
+
+
+  <!-- QUESTION 3 -->
 
   <section class="question">
 
-    <div class="question-number">Question 3</div>
-
-    <div class="question-text">
-      Which instrument is commonly used to measure temperature?
+    <div class="question-number">
+      Question 3
     </div>
 
-    <label class="option">
-      <input type="radio" name="q3" value="A">
-      <span>A. Thermometer</span>
-    </label>
+    <div class="question-text">
+
+      What is the perimeter of a square
+      whose side is 5 cm?
+
+    </div>
+
 
     <label class="option">
-      <input type="radio" name="q3" value="B">
-      <span>B. Barometer</span>
+
+      <input
+        type="radio"
+        name="q3"
+        value="A"
+      >
+
+      <span>
+        A. 10 cm
+      </span>
+
     </label>
 
-    <label class="option">
-      <input type="radio" name="q3" value="C">
-      <span>C. Ammeter</span>
-    </label>
 
     <label class="option">
-      <input type="radio" name="q3" value="D">
-      <span>D. Stopwatch</span>
+
+      <input
+        type="radio"
+        name="q3"
+        value="B"
+      >
+
+      <span>
+        B. 15 cm
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q3"
+        value="C"
+      >
+
+      <span>
+        C. 20 cm
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q3"
+        value="D"
+      >
+
+      <span>
+        D. 25 cm
+      </span>
+
     </label>
 
   </section>
 
+
+
+  <!-- =================================================
+       PHYSICS
+       ================================================= -->
+
+  <div class="subject-title">
+    PHYSICS
+  </div>
+
+
+  <!-- QUESTION 4 -->
 
   <section class="question">
 
-    <div class="question-number">Question 4</div>
-
-    <div class="question-text">
-      Which of the following is the SI unit of length?
+    <div class="question-number">
+      Question 4
     </div>
 
-    <label class="option">
-      <input type="radio" name="q4" value="A">
-      <span>A. Metre</span>
-    </label>
+    <div class="question-text">
+
+      Which of the following is a
+      physical quantity?
+
+    </div>
+
 
     <label class="option">
-      <input type="radio" name="q4" value="B">
-      <span>B. Second</span>
+
+      <input
+        type="radio"
+        name="q4"
+        value="A"
+      >
+
+      <span>
+        A. Length
+      </span>
+
     </label>
 
-    <label class="option">
-      <input type="radio" name="q4" value="C">
-      <span>C. Kilogram</span>
-    </label>
 
     <label class="option">
-      <input type="radio" name="q4" value="D">
-      <span>D. Ampere</span>
+
+      <input
+        type="radio"
+        name="q4"
+        value="B"
+      >
+
+      <span>
+        B. Beauty
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q4"
+        value="C"
+      >
+
+      <span>
+        C. Happiness
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q4"
+        value="D"
+      >
+
+      <span>
+        D. Intelligence
+      </span>
+
     </label>
 
   </section>
 
+
+
+  <!-- QUESTION 5 -->
 
   <section class="question">
 
-    <div class="question-number">Question 5</div>
-
-    <div class="question-text">
-      Which quantity can be measured using a stopwatch?
+    <div class="question-number">
+      Question 5
     </div>
 
-    <label class="option">
-      <input type="radio" name="q5" value="A">
-      <span>A. Time interval</span>
-    </label>
+    <div class="question-text">
+
+      Which SI unit is used to measure
+      time?
+
+    </div>
+
 
     <label class="option">
-      <input type="radio" name="q5" value="B">
-      <span>B. Mass</span>
+
+      <input
+        type="radio"
+        name="q5"
+        value="A"
+      >
+
+      <span>
+        A. Metre
+      </span>
+
     </label>
 
-    <label class="option">
-      <input type="radio" name="q5" value="C">
-      <span>C. Length</span>
-    </label>
 
     <label class="option">
-      <input type="radio" name="q5" value="D">
-      <span>D. Temperature</span>
+
+      <input
+        type="radio"
+        name="q5"
+        value="B"
+      >
+
+      <span>
+        B. Second
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q5"
+        value="C"
+      >
+
+      <span>
+        C. Kilogram
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q5"
+        value="D"
+      >
+
+      <span>
+        D. Newton
+      </span>
+
     </label>
 
   </section>
+
+
+
+  <!-- QUESTION 6 -->
+
+  <section class="question">
+
+    <div class="question-number">
+      Question 6
+    </div>
+
+    <div class="question-text">
+
+      Which instrument is commonly
+      used to measure temperature?
+
+    </div>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q6"
+        value="A"
+      >
+
+      <span>
+        A. Thermometer
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q6"
+        value="B"
+      >
+
+      <span>
+        B. Barometer
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q6"
+        value="C"
+      >
+
+      <span>
+        C. Ammeter
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q6"
+        value="D"
+      >
+
+      <span>
+        D. Stopwatch
+      </span>
+
+    </label>
+
+  </section>
+
+
+
+  <!-- =================================================
+       CHEMISTRY
+       ================================================= -->
+
+  <div class="subject-title">
+    CHEMISTRY
+  </div>
+
+
+  <!-- QUESTION 7 -->
+
+  <section class="question">
+
+    <div class="question-number">
+      Question 7
+    </div>
+
+    <div class="question-text">
+
+      Which of the following is a
+      physical change?
+
+    </div>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q7"
+        value="A"
+      >
+
+      <span>
+        A. Burning of paper
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q7"
+        value="B"
+      >
+
+      <span>
+        B. Rusting of iron
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q7"
+        value="C"
+      >
+
+      <span>
+        C. Melting of ice
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q7"
+        value="D"
+      >
+
+      <span>
+        D. Cooking food
+      </span>
+
+    </label>
+
+  </section>
+
+
+
+  <!-- QUESTION 8 -->
+
+  <section class="question">
+
+    <div class="question-number">
+      Question 8
+    </div>
+
+    <div class="question-text">
+
+      Which substance is commonly known
+      as common salt?
+
+    </div>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q8"
+        value="A"
+      >
+
+      <span>
+        A. Sodium chloride
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q8"
+        value="B"
+      >
+
+      <span>
+        B. Calcium carbonate
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q8"
+        value="C"
+      >
+
+      <span>
+        C. Carbon dioxide
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q8"
+        value="D"
+      >
+
+      <span>
+        D. Water
+      </span>
+
+    </label>
+
+  </section>
+
+
+
+  <!-- QUESTION 9 -->
+
+  <section class="question">
+
+    <div class="question-number">
+      Question 9
+    </div>
+
+    <div class="question-text">
+
+      Which of the following is a
+      state of matter?
+
+    </div>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q9"
+        value="A"
+      >
+
+      <span>
+        A. Solid
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q9"
+        value="B"
+      >
+
+      <span>
+        B. Energy
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q9"
+        value="C"
+      >
+
+      <span>
+        C. Force
+      </span>
+
+    </label>
+
+
+    <label class="option">
+
+      <input
+        type="radio"
+        name="q9"
+        value="D"
+      >
+
+      <span>
+        D. Temperature
+      </span>
+
+    </label>
+
+  </section>
+
 
 </main>
 
 
+
+<!-- =================================================
+     BOTTOM BAR
+     ================================================= -->
+
 <div class="bottom-bar">
 
   <div class="bottom-inner">
+
 
     <button
       class="logout-btn"
@@ -522,6 +1324,7 @@ body{
       Logout
     </button>
 
+
     <button
       class="submit-btn"
       id="submitButton"
@@ -530,14 +1333,25 @@ body{
       Submit Exam
     </button>
 
+
   </div>
 
 </div>
 
 
-<div class="message" id="messageBox">
 
-  <h3 id="messageTitle">Message</h3>
+<!-- =================================================
+     MESSAGE
+     ================================================= -->
+
+<div
+  class="message"
+  id="messageBox"
+>
+
+  <h3 id="messageTitle">
+    Message
+  </h3>
 
   <p id="messageText"></p>
 
@@ -551,7 +1365,12 @@ body{
 </div>
 
 
+
 <script>
+
+/* =====================================================
+   APPS SCRIPT
+   ===================================================== */
 
 const APPS_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbyVBK9BHdBozVZXe5bHBkcuUEqkLafFj0KETPdjVQeP0hRCUSxGACj1rpimzlqGEBSZ/exec";
@@ -581,6 +1400,10 @@ if (admissionNumber) {
 }
 
 
+/*
+   These may have been stored by the login page.
+*/
+
 const studentName =
   sessionStorage.getItem(
     "studentName"
@@ -590,20 +1413,12 @@ const studentName =
 const studentClass =
   sessionStorage.getItem(
     "studentClass"
-  ) || "6 CO";
+  ) || "6 Concept";
 
 
-const startTime =
-  sessionStorage.getItem(
-    "startTime"
-  );
-
-
-const endTime =
-  sessionStorage.getItem(
-    "endTime"
-  );
-
+/* =====================================================
+   DISPLAY STUDENT INFORMATION
+   ===================================================== */
 
 document.getElementById(
   "studentName"
@@ -625,7 +1440,7 @@ document.getElementById(
 
 
 /* =====================================================
-   IF ADMISSION NUMBER IS MISSING
+   LOGIN CHECK
    ===================================================== */
 
 if (!admissionNumber) {
@@ -634,8 +1449,10 @@ if (!admissionNumber) {
     "Login Required",
     "Please login again before starting the examination.",
     function(){
+
       window.location.href =
         "../index.html";
+
     }
   );
 
@@ -643,106 +1460,30 @@ if (!admissionNumber) {
 
 
 /* =====================================================
-   TIMER
+   SUBMISSION CONTROL
    ===================================================== */
 
-let timerInterval = null;
-
 let submitting = false;
-
-
-function updateTimer() {
-
-  if (!endTime) {
-
-    document.getElementById(
-      "timer"
-    ).textContent = "60:00";
-
-    return;
-
-  }
-
-
-  const end =
-    new Date(endTime).getTime();
-
-
-  const now =
-    Date.now();
-
-
-  let remaining =
-    end - now;
-
-
-  if (remaining <= 0) {
-
-    document.getElementById(
-      "timer"
-    ).textContent = "00:00";
-
-    clearInterval(
-      timerInterval
-    );
-
-    autoSubmit();
-
-    return;
-
-  }
-
-
-  const totalSeconds =
-    Math.floor(
-      remaining / 1000
-    );
-
-
-  const minutes =
-    Math.floor(
-      totalSeconds / 60
-    );
-
-
-  const seconds =
-    totalSeconds % 60;
-
-
-  document.getElementById(
-    "timer"
-  ).textContent =
-    String(minutes).padStart(2,"0")
-    + ":" +
-    String(seconds).padStart(2,"0");
-
-}
-
-
-updateTimer();
-
-
-timerInterval =
-  setInterval(
-    updateTimer,
-    1000
-  );
 
 
 /* =====================================================
    COLLECT ANSWERS
    ===================================================== */
 
-function collectAnswers() {
+function collectAnswers(){
 
   const answers = {};
 
 
-  for (
+  /*
+     We have 9 questions.
+  */
+
+  for(
     let i = 1;
-    i <= 5;
+    i <= 9;
     i++
-  ) {
+  ){
 
     const selected =
       document.querySelector(
@@ -752,7 +1493,7 @@ function collectAnswers() {
       );
 
 
-    if (selected) {
+    if(selected){
 
       answers[String(i)] =
         selected.value;
@@ -771,30 +1512,24 @@ function collectAnswers() {
    SUBMIT EXAM
    ===================================================== */
 
-async function submitExam(
-  automatic = false
-) {
+function submitExam(){
 
-  if (submitting) {
+  if(submitting){
 
     return;
 
   }
 
 
-  if (!automatic) {
-
-    const confirmed =
-      confirm(
-        "Are you sure you want to submit the exam?"
-      );
+  const confirmed =
+    confirm(
+      "Are you sure you want to submit the exam?"
+    );
 
 
-    if (!confirmed) {
+  if(!confirmed){
 
-      return;
-
-    }
+    return;
 
   }
 
@@ -812,72 +1547,118 @@ async function submitExam(
   ).disabled = true;
 
 
-  if (automatic) {
-
-    showMessage(
-      "Time Over",
-      "Your 60-minute examination time has ended. Your answers are being submitted.",
-      null,
-      false
-    );
-
-  } else {
-
-    showMessage(
-      "Submitting",
-      "Please wait while your answers are submitted.",
-      null,
-      false
-    );
-
-  }
+  showMessage(
+    "Submitting",
+    "Please wait while your answers are being submitted.",
+    null,
+    false
+  );
 
 
   const answers =
     collectAnswers();
 
 
-  try {
+  try{
 
     /*
-     * Submit through a normal HTML GET form.
-     * This avoids the browser CORS/fetch problem.
-     * Apps Script doGet() must handle action=submitExam.
-     */
+     IMPORTANT:
+
+     We deliberately use a normal GET form.
+
+     This avoids the browser CORS/fetch problem
+     we encountered earlier.
+    */
 
     const form =
-      document.createElement("form");
+      document.createElement(
+        "form"
+      );
+
 
     form.method = "GET";
-    form.action = APPS_SCRIPT_URL;
-    form.style.display = "none";
 
-    function addField(name, value) {
+    form.action =
+      APPS_SCRIPT_URL;
+
+    form.style.display =
+      "none";
+
+
+    function addField(
+      name,
+      value
+    ){
+
       const input =
-        document.createElement("input");
-      input.type = "hidden";
-      input.name = name;
-      input.value = value;
-      form.appendChild(input);
+        document.createElement(
+          "input"
+        );
+
+
+      input.type =
+        "hidden";
+
+
+      input.name =
+        name;
+
+
+      input.value =
+        value;
+
+
+      form.appendChild(
+        input
+      );
+
     }
 
-    addField("action", "submitExam");
-    addField("admissionNumber", admissionNumber);
 
-    const answers = collectAnswers();
+    addField(
+      "action",
+      "submitExam"
+    );
 
-    Object.keys(answers).forEach(function(q) {
-      addField("q" + q, answers[q]);
-    });
 
-    document.body.appendChild(form);
+    addField(
+      "admissionNumber",
+      admissionNumber
+    );
+
+
+    /*
+       Send q1 ... q9
+    */
+
+    Object.keys(
+      answers
+    ).forEach(
+      function(q){
+
+        addField(
+          "q" + q,
+          answers[q]
+        );
+
+      }
+    );
+
+
+    document.body.appendChild(
+      form
+    );
+
+
     form.submit();
 
-    return;
 
-  } catch (error) {
+  }
+  catch(error){
 
-    console.error(error);
+    console.error(
+      error
+    );
 
 
     submitting = false;
@@ -895,25 +1676,10 @@ async function submitExam(
 
     showMessage(
       "Connection Error",
-      "The examination server could not be reached. Your answers have not been confirmed as submitted. Please press Submit once again.",
+      "The examination server could not be reached. Your answers have not been confirmed as submitted. Please press Submit again.",
       null,
       true
     );
-
-  }
-
-}
-
-
-/* =====================================================
-   AUTO SUBMIT
-   ===================================================== */
-
-function autoSubmit() {
-
-  if (!submitting) {
-
-    submitExam(true);
 
   }
 
@@ -930,7 +1696,7 @@ document.getElementById(
   "click",
   function(){
 
-    if (submitting) {
+    if(submitting){
 
       return;
 
@@ -943,33 +1709,32 @@ document.getElementById(
       );
 
 
-    if (!confirmed) {
+    if(!confirmed){
 
       return;
 
     }
 
 
-    clearInterval(
-      timerInterval
-    );
-
-
     sessionStorage.removeItem(
       "studentName"
     );
+
 
     sessionStorage.removeItem(
       "studentClass"
     );
 
+
     sessionStorage.removeItem(
       "startTime"
     );
 
+
     sessionStorage.removeItem(
       "endTime"
     );
+
 
     sessionStorage.removeItem(
       "examSubmitted"
@@ -993,7 +1758,7 @@ document.getElementById(
   "click",
   function(){
 
-    submitExam(false);
+    submitExam();
 
   }
 );
@@ -1008,7 +1773,7 @@ function showMessage(
   text,
   callback,
   showButton = true
-) {
+){
 
   document.getElementById(
     "messageTitle"
@@ -1046,7 +1811,8 @@ function showMessage(
       box.style.display =
         "none";
 
-      if (callback) {
+
+      if(callback){
 
         callback();
 
@@ -1062,5 +1828,7 @@ function showMessage(
 
 </script>
 
+
 </body>
+
 </html>
