@@ -24,8 +24,6 @@ body {
   min-height: 100vh;
 }
 
-/* HEADER */
-
 .header {
   background: white;
   height: 82px;
@@ -47,10 +45,8 @@ body {
 .logo {
   width: 50px;
   height: 50px;
-
   background: #172f68;
   color: white;
-
   border-radius: 14px;
 
   display: flex;
@@ -75,16 +71,12 @@ body {
 .exam-label {
   background: #eef3ff;
   color: #172f68;
-
   padding: 10px 18px;
-
   border-radius: 20px;
 
   font-size: 13px;
   font-weight: bold;
 }
-
-/* MAIN */
 
 .main {
   min-height: calc(100vh - 82px);
@@ -117,21 +109,14 @@ body {
 
 .login-title h2 {
   margin: 0 0 8px;
-
   font-size: 28px;
-
-  color: #172f68;
 }
 
 .login-title p {
   margin: 0;
-
   color: #7a8497;
-
   font-size: 14px;
 }
-
-/* INPUTS */
 
 .field {
   margin-bottom: 20px;
@@ -151,7 +136,6 @@ body {
 
 .field input {
   width: 100%;
-
   height: 50px;
 
   border: 1px solid #d9dee8;
@@ -172,23 +156,17 @@ body {
     0 0 0 3px rgba(49,86,163,0.10);
 }
 
-/* BUTTON */
-
 .login-button {
   width: 100%;
-
   height: 52px;
 
   border: none;
-
   border-radius: 10px;
 
   background: #172f68;
-
   color: white;
 
   font-size: 16px;
-
   font-weight: bold;
 
   cursor: pointer;
@@ -196,11 +174,8 @@ body {
 
 .login-button:disabled {
   background: #9aa4b7;
-
   cursor: not-allowed;
 }
-
-/* MESSAGE */
 
 #message {
   min-height: 22px;
@@ -216,15 +191,9 @@ body {
   color: #d93025;
 }
 
-.success {
-  color: #188038;
-}
-
 .checking {
   color: #3156a3;
 }
-
-/* FOOTER */
 
 .footer {
   text-align: center;
@@ -235,8 +204,6 @@ body {
 
   font-size: 12px;
 }
-
-/* MOBILE */
 
 @media (max-width: 600px) {
 
@@ -286,9 +253,7 @@ body {
 
     <div class="brand-text">
 
-      <h1>
-        HIMALAYA
-      </h1>
+      <h1>HIMALAYA</h1>
 
       <p>
         Class 6 Concept Examination
@@ -308,7 +273,6 @@ body {
 
 
 <main class="main">
-
 
   <div class="login-card">
 
@@ -391,24 +355,20 @@ body {
 
   </div>
 
-
 </main>
 
 
 
 <script>
 
-/* ========================================================
+
+/* =====================================================
    APPS SCRIPT
-   ======================================================== */
+   ===================================================== */
 
 const APPS_SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbyVBK9BHdBozVZXe5bHBkcuUEqkLafFj0KETPdjVQeP0hRCUSxGACj1rpimzlqGEBSZ/exec";
 
-
-/* ========================================================
-   ELEMENTS
-   ======================================================== */
 
 const form =
 document.getElementById("loginForm");
@@ -426,13 +386,17 @@ const message =
 document.getElementById("message");
 
 
-/* ========================================================
-   LOGIN CALLBACK
-   ======================================================== */
+/* =====================================================
+   CALLBACK
+   ===================================================== */
 
-window.loginCallback = function(data) {
+window.loginCallback =
+function(data) {
 
-  console.log("LOGIN RESPONSE:", data);
+  console.log(
+    "LOGIN RESPONSE:",
+    data
+  );
 
 
   if (
@@ -440,19 +404,11 @@ window.loginCallback = function(data) {
     data.success === true
   ) {
 
-    message.className = "success";
-
-    message.textContent =
-      "Login successful. Opening examination...";
-
-    button.disabled = true;
-
-
     /*
-     * DIRECT GITHUB REDIRECT
+     * Directly open GitHub test page.
      */
 
-    window.location.assign(
+    window.location.replace(
       data.redirectURL
     );
 
@@ -461,23 +417,26 @@ window.loginCallback = function(data) {
   }
 
 
-  message.className = "error";
+  message.className =
+    "error";
 
   message.textContent =
     data && data.error
       ? data.error
-      : "Invalid Admission Number or Passcode.";
+      : "Invalid login details.";
 
-  button.disabled = false;
+  button.disabled =
+    false;
 
-  button.textContent = "Login";
+  button.textContent =
+    "Login";
 
 };
 
 
-/* ========================================================
-   FORM SUBMIT
-   ======================================================== */
+/* =====================================================
+   LOGIN
+   ===================================================== */
 
 form.addEventListener(
   "submit",
@@ -498,16 +457,13 @@ form.addEventListener(
         .toUpperCase();
 
 
-    /* VALIDATION */
-
     if (!admissionNumber) {
 
-      message.className = "error";
+      message.className =
+        "error";
 
       message.textContent =
         "Please enter your admission number.";
-
-      admissionInput.focus();
 
       return;
 
@@ -516,21 +472,19 @@ form.addEventListener(
 
     if (!password) {
 
-      message.className = "error";
+      message.className =
+        "error";
 
       message.textContent =
         "Please enter your passcode.";
-
-      passwordInput.focus();
 
       return;
 
     }
 
 
-    /* BUTTON */
-
-    button.disabled = true;
+    button.disabled =
+      true;
 
     button.textContent =
       "Checking...";
@@ -540,27 +494,11 @@ form.addEventListener(
       "checking";
 
     message.textContent =
-      "Verifying your details...";
+      "Verifying...";
 
 
     /*
-     * REMOVE ANY OLD JSONP SCRIPT
-     */
-
-    const oldScript =
-      document.getElementById(
-        "loginJSONP"
-      );
-
-    if (oldScript) {
-
-      oldScript.remove();
-
-    }
-
-
-    /*
-     * CREATE JSONP URL
+     * JSONP REQUEST
      */
 
     const url =
@@ -581,44 +519,23 @@ form.addEventListener(
       "&callback=loginCallback";
 
 
-    console.log(
-      "REQUEST:",
-      url
-    );
-
-
-    /*
-     * CREATE SCRIPT
-     */
-
     const script =
       document.createElement(
         "script"
       );
 
 
-    script.id =
-      "loginJSONP";
-
-
     script.src =
       url;
 
 
-    /*
-     * IMPORTANT:
-     *
-     * We deliberately DO NOT use
-     * script.onerror here.
-     *
-     * The Apps Script response has
-     * already been verified to work.
-     */
+    script.async =
+      true;
 
-    document.head.appendChild(
+
+    document.body.appendChild(
       script
     );
-
 
   }
 );
