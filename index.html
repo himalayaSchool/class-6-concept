@@ -574,8 +574,8 @@ form.addEventListener(
 
                     showMessage(
                         result &&
-                        result.message
-                            ? result.message
+                        result.error
+                            ? result.error
                             : "Login failed.",
                         "error"
                     );
@@ -668,7 +668,7 @@ form.addEventListener(
         const requestURL =
             APPS_SCRIPT_URL +
             "?action=login" +
-            "&loginId=" +
+            "&admissionNumber=" +
             encodeURIComponent(
                 admissionNumber
             ) +
