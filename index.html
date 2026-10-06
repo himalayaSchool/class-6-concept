@@ -557,83 +557,47 @@ button:disabled{
 
 <script>
 
-/* =====================================================
-   GOOGLE APPS SCRIPT WEB APP
-   ===================================================== */
-
 const APPS_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbyVBK9BHdBozVZXe5bHBkcuUEqkLafFj0KETPdjVQeP0hRCUSxGACj1rpimzlqGEBSZ/exec";
 
 
-/* =====================================================
-   ELEMENTS
-   ===================================================== */
-
 const form =
-  document.getElementById(
-    "loginForm"
-  );
-
+  document.getElementById("loginForm");
 
 const button =
-  document.getElementById(
-    "loginButton"
-  );
-
+  document.getElementById("loginButton");
 
 const message =
-  document.getElementById(
-    "message"
-  );
-
+  document.getElementById("message");
 
 const admissionInput =
-  document.getElementById(
-    "admissionNumber"
-  );
-
+  document.getElementById("admissionNumber");
 
 const passcodeInput =
-  document.getElementById(
-    "passcode"
-  );
-
-
-/* =====================================================
-   APPS SCRIPT FORM ACTION
-   ===================================================== */
-
-form.action =
-  APPS_SCRIPT_URL;
+  document.getElementById("passcode");
 
 
 /* =====================================================
    SHOW MESSAGE
    ===================================================== */
 
-function showMessage(
-  text,
-  type
-){
+function showMessage(text, type) {
 
-  message.textContent =
-    text;
+  message.textContent = text;
 
   message.className =
-    "message " +
-    type;
+    "message " + type;
 
 }
 
 
 /* =====================================================
-   ADMISSION NUMBER
-   ALWAYS UPPERCASE
+   UPPERCASE ADMISSION NUMBER
    ===================================================== */
 
 admissionInput.addEventListener(
   "input",
-  function(){
+  function () {
 
     this.value =
       this.value.toUpperCase();
@@ -643,12 +607,22 @@ admissionInput.addEventListener(
 
 
 /* =====================================================
-   LOGIN SUBMISSION
+   LOGIN
    ===================================================== */
 
 form.addEventListener(
   "submit",
-  function(event){
+  function (event) {
+
+    /*
+     * STOP the normal form submission.
+     *
+     * We will deliberately navigate to Apps Script
+     * ourselves.
+     */
+
+    event.preventDefault();
+
 
     const admissionNumber =
       admissionInput.value
@@ -662,16 +636,12 @@ form.addEventListener(
         .toUpperCase();
 
 
-    /* -----------------------------------------------
-       CHECK EMPTY FIELDS
-       ----------------------------------------------- */
+    /* EMPTY CHECK */
 
-    if(
+    if (
       !admissionNumber ||
       !passcode
-    ){
-
-      event.preventDefault();
+    ) {
 
       showMessage(
         "Please enter your Admission Number and Passcode.",
@@ -683,17 +653,11 @@ form.addEventListener(
     }
 
 
-    /* -----------------------------------------------
-       CURRENT SYSTEM:
-       ADMISSION NUMBER = PASSCODE
-       ----------------------------------------------- */
+    /* PASSCODE CHECK */
 
-    if(
-      admissionNumber !==
-      passcode
-    ){
-
-      event.preventDefault();
+    if (
+      admissionNumber !== passcode
+    ) {
 
       showMessage(
         "Invalid Admission Number or Passcode.",
@@ -705,9 +669,9 @@ form.addEventListener(
     }
 
 
-    /* -----------------------------------------------
-       SAVE ADMISSION NUMBER LOCALLY
-       ----------------------------------------------- */
+    /*
+     * Save admission number.
+     */
 
     sessionStorage.setItem(
       "admissionNumber",
@@ -715,25 +679,17 @@ form.addEventListener(
     );
 
 
-    /* -----------------------------------------------
-       IMPORTANT:
-       DO NOT USE event.preventDefault() HERE.
-       
-       The browser must submit the form directly
-       to the Apps Script Web App.
-       ----------------------------------------------- */
+    /*
+     * Disable controls.
+     */
 
-    button.disabled =
-      true;
-
+    button.disabled = true;
 
     button.textContent =
       "Checking...";
 
-
     admissionInput.disabled =
       true;
-
 
     passcodeInput.disabled =
       true;
@@ -743,6 +699,38 @@ form.addEventListener(
       "Verifying your details...",
       "info"
     );
+
+
+    /*
+     * BUILD APPS SCRIPT URL
+     */
+
+    const loginURL =
+      APPS_SCRIPT_URL +
+      "?action=login" +
+      "&admissionNumber=" +
+      encodeURIComponent(
+        admissionNumber
+      ) +
+      "&password=" +
+      encodeURIComponent(
+        passcode
+      );
+
+
+    /*
+     * IMPORTANT:
+     *
+     * This is a normal browser navigation.
+     *
+     * No fetch()
+     * No JSONP
+     * No iframe
+     * No CORS problem.
+     */
+
+    window.location.href =
+      loginURL;
 
   }
 );
